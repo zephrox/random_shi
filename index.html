@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIDA | Maheshkhali Integrated Development Authority</title>
+  <meta name="description" content="Official Sovereign Portal of Maheshkhali Integrated Development Authority (MIDA) - Building Bangladesh's $150 Billion Blue Economy Gateway.">
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans (English) & Hind Siliguri (Bengali) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Global Architectural Master Blueprint Background (assets/background.jpg, repeat, no zoom, 50% opacity) -->
+  <div class="site_global_blueprint_bg" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       1. Top Sovereign Utility Bar
+       ========================================================================== -->
+  <header class="top_sovereign_bar">
+    <div class="container_large">
+      <div class="top_bar_wrapper">
+        <div class="top_bar_left">
+          <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#10B981;"></span>
+          <span data-en="Government of the People's Republic of Bangladesh" data-bn="গণপ্রজাতন্ত্রী বাংলাদেশ সরকার">Government of the People's Republic of Bangladesh</span>
+          <span style="opacity: 0.4;">|</span>
+          <span data-en="Chief Adviser's / Prime Minister's Office" data-bn="প্রধান উপদেষ্টার / প্রধানমন্ত্রীর কার্যালয়">Chief Adviser's / Prime Minister's Office</span>
+        </div>
+        <div class="top_bar_right">
+          <a href="about.html#section-statutory-act" style="color:#CBD5E1; font-size:0.75rem;" data-en="Official Gazettes" data-bn="সরকারি গেজেট">Official Gazettes</a>
+          <a href="about.html#section-care" style="color:var(--color-teal-400); font-size:0.75rem; font-weight:700;" data-en="Community Care & URAP" data-bn="পুনর্বাসন ও সামাজিক নিরাপত্তা">Community Care & URAP</a>
+          <button id="langToggleBtn" class="lang_toggle_btn">বাংলা (BN)</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. Sticky Main Navigation (Webflow: nav_component)
+       ========================================================================== -->
+  <nav class="main_navigation">
+    <div class="container_large">
+      <div class="nav_wrapper">
+        
+        <!-- Brand Lockup -->
+        <a href="index.html" class="brand_lockup">
+          <div class="brand_logo_circle">M</div>
+          <div class="brand_title_group">
+            <span class="brand_title">MIDA</span>
+            <span class="brand_subtitle" data-en="Maheshkhali Integrated Dev. Authority" data-bn="মহেশখালী সমন্বিত উন্নয়ন কর্তৃপক্ষ">Maheshkhali Integrated Dev. Authority</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <ul class="nav_menu">
+          <li><a href="index.html" class="nav_link active" style="color:var(--color-primary); font-weight:800;" data-en="Home" data-bn="মূল পাতা">Home</a></li>
+          <li><a href="about.html" class="nav_link" data-en="About MIDA" data-bn="মিডা পরিচিতি">About MIDA</a></li>
+          <li><a href="#section-hubs" class="nav_link" data-en="4 Strategic Hubs" data-bn="৪টি প্রধান হাব">4 Strategic Hubs</a></li>
+          <li><a href="#section-roadmap" class="nav_link" data-en="Roadmap" data-bn="রোডম্যাপ">Roadmap</a></li>
+          <li><a href="about.html#section-projects" class="nav_link" data-en="Mega-Projects" data-bn="মেগা প্রকল্পসমূহ">Mega-Projects</a></li>
+          <li><a href="about.html#section-care" class="nav_link" data-en="Community Care" data-bn="সামাজিক দায়বদ্ধতা">Community Care</a></li>
+          <li><a href="#section-contact" class="nav_link" data-en="Contact & GRS" data-bn="যোগাযোগ ও অভিযোগ">Contact & GRS</a></li>
+        </ul>
+
+        <!-- Action CTA & Mobile Toggle -->
+        <div class="nav_actions">
+          <a href="#ossModal" class="btn_primary open-oss-modal" data-en="One-Stop Service (OSS)" data-bn="ওয়ান স্টপ সার্ভিস">One-Stop Service (OSS)</a>
+          <button class="mobile_toggle" aria-label="Toggle Navigation Menu">☰</button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       3. Main Hero Slideshow Section (Webflow: section_hero_slideshow)
+       ========================================================================== -->
+  <section class="section_hero_slideshow" id="section-hero" aria-label="MIDA National Vision Showcase">
+    <!-- Background Slides Deck -->
+    <div class="slideshow_track" id="heroSlidesTrack" aria-live="off">
+      <!-- Slide 1: Deep Sea Commercial Port & Logistics -->
+      <div class="slideshow_slide active" data-slide-index="0" data-caption="01 // MATARBARI DEEP-SEA COMMERCIAL HARBOR · 18.5M DRAFT CHANNEL">
+        <img src="assets/slide_show/ChatGPT%20Image%20Sep%2022,%202026,%2012_06_13%20AM.png" alt="Matarbari Deep Sea Commercial Harbor & Channel" class="slide_img" loading="eager">
+        <div class="slide_overlay_ambient"></div>
+        <div class="slide_overlay_gradient"></div>
+      </div>
+      <!-- Slide 2: Zero-Carbon Energy Hub & Green Industry -->
+      <div class="slideshow_slide" data-slide-index="1" data-caption="02 // ZERO-CARBON ENERGY HUB · LNG & 400KV INTEGRATED GRID">
+        <img src="assets/slide_show/ChatGPT%20Image%20Sep%2022,%202026,%2012_19_27%20AM.png" alt="Sustainable Clean Energy & Industrial Transition" class="slide_img" loading="lazy">
+        <div class="slide_overlay_ambient"></div>
+        <div class="slide_overlay_gradient"></div>
+      </div>
+      <!-- Slide 3: Climate-Resilient Eco-City & Inclusive Housing -->
+      <div class="slideshow_slide" data-slide-index="2" data-caption="03 // INCLUSIVE CITIZEN ECO-HABITAT · URAP SAFE HOUSING & SCHOOLS">
+        <img src="assets/slide_show/Gemini_Generated_Image_b5pu8rb5pu8rb5pu.jpg" alt="Smart Eco-City Masterplan & Inclusive Communities" class="slide_img" loading="lazy">
+        <div class="slide_overlay_ambient"></div>
+        <div class="slide_overlay_gradient"></div>
+      </div>
+      <!-- Slide 4: Regional BIG-B Economic Belt & Multi-Modal Expressway -->
+      <div class="slideshow_slide" data-slide-index="3" data-caption="04 // BAY OF BENGAL INDUSTRIAL GROWTH BELT (BIG-B) · N1 EXPRESSWAY LINK">
+        <img src="assets/slide_show/MIT-Edge-Cities-1_0.jpg" alt="Regional Connectivity & Global Trade Belt" class="slide_img" loading="lazy">
+        <div class="slide_overlay_ambient"></div>
+        <div class="slide_overlay_gradient"></div>
+      </div>
+    </div>
+
+    <!-- Hero Content Overlay (Left-Aligned Sovereign Architecture) -->
+    <div class="slideshow_content_wrapper">
+      <div class="container_large">
+        <div class="slideshow_content">
+          <!-- Exact Required Tag: "Integrated . Sustainable . Inclusive ." -->
+          <div class="hero_triad_pill">
+            <span class="triad_dot"></span>
+            <span class="triad_text" data-en="Integrated . Sustainable . Inclusive ." data-bn="সমন্বিত . টেকসই . অন্তর্ভুক্তিমূলক .">Integrated . Sustainable . Inclusive .</span>
+          </div>
+
+          <h1 class="hero_slideshow_headline">
+            <span data-en="Maheshkhali Integrated" data-bn="মহেশখালী সমন্বিত">Maheshkhali Integrated</span><br>
+            <span class="text-gold" data-en="Development Authority" data-bn="উন্নয়ন কর্তৃপক্ষ">Development Authority</span>
+          </h1>
+
+          <div class="hero_slideshow_accent_line" aria-hidden="true"></div>
+
+          <p class="hero_slideshow_subhead" data-en="MIDA orchestrates 34,000 gazetted acres across the Bay of Bengal Industrial Growth Belt (BIG-B)—driving deep-sea maritime logistics, sustainable clean energy, and inclusive community prosperity through 2056." data-bn="মহেশখালী সমন্বিত উন্নয়ন কর্তৃপক্ষ ২০৫৬ সালের মধ্যে ৩৪,০০০ একর জুড়ে গভীর সমুদ্রবন্দর, সবুজ জ্বালানি, শিল্প নগরী ও অন্তর্ভুক্তিমূলক নাগরিক সমৃদ্ধির রূপান্তর পরিচালনা করছে।">
+            MIDA orchestrates 34,000 gazetted acres across the Bay of Bengal Industrial Growth Belt (BIG-B)—driving deep-sea maritime logistics, sustainable clean energy, and inclusive community prosperity through 2056.
+          </p>
+
+          <!-- Dual Primary Action Cluster -->
+          <div class="hero_slideshow_cta_group">
+            <a href="#section-gateway" class="btn_primary" data-en="Explore Sovereign Gateway ↓" data-bn="জাতীয় তোরণ ও ড্রাফট বিবরণ দেখুন ↓">
+              Explore Sovereign Gateway ↓
+            </a>
+            <a href="#ossModal" class="btn_secondary open-oss-modal" data-en="Investor Single Window (OSS) →" data-bn="বিনিয়োগকারী ওএসএস পোর্টাল →">
+              Investor Single Window (OSS) →
+            </a>
+            <a href="about.html" class="btn_teal" data-en="About MIDA Dossier →" data-bn="মিডা প্রাতিষ্ঠানিক বিবরণ →">
+              About MIDA Dossier →
+            </a>
+          </div>
+
+          <!-- Dynamic Caption Display -->
+          <div class="slide_caption_strip">
+            <span class="caption_chip" id="slideCaption">01 // MATARBARI DEEP-SEA COMMERCIAL HARBOR · 18.5M DRAFT CHANNEL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slideshow Navigation & Controls Bar -->
+    <div class="slideshow_controls_bar">
+      <div class="container_large slideshow_controls_inner">
+        <!-- Progress Pills / Indicators -->
+        <div class="slideshow_indicators" role="tablist" aria-label="Slideshow pagination">
+          <button class="indicator_pill active" data-slide-to="0" aria-label="Slide 1: Maritime Port Gateway">
+            <span class="pill_progress_bar"></span>
+            <span class="pill_label">01 Port Gateway</span>
+          </button>
+          <button class="indicator_pill" data-slide-to="1" aria-label="Slide 2: Sustainable Energy">
+            <span class="pill_progress_bar"></span>
+            <span class="pill_label">02 Clean Energy</span>
+          </button>
+          <button class="indicator_pill" data-slide-to="2" aria-label="Slide 3: Smart Cities">
+            <span class="pill_progress_bar"></span>
+            <span class="pill_label">03 Eco-Urban</span>
+          </button>
+          <button class="indicator_pill" data-slide-to="3" aria-label="Slide 4: Regional Belt">
+            <span class="pill_progress_bar"></span>
+            <span class="pill_label">04 Regional Belt</span>
+          </button>
+        </div>
+
+        <!-- Prev, Next, Play/Pause Navigation Controls -->
+        <div class="slideshow_nav_buttons">
+          <button class="slide_nav_btn" id="prevSlideBtn" aria-label="Previous Slide">‹</button>
+          <button class="slide_nav_btn" id="togglePlayBtn" aria-label="Pause Auto Slideshow">❚❚</button>
+          <button class="slide_nav_btn" id="nextSlideBtn" aria-label="Next Slide">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. Sovereign Gateway & Telemetry Pillar Section (Webflow: section_gateway)
+       ========================================================================== -->
+  <section class="section_hero section_gateway" id="section-gateway">
+    <div class="container_large">
+      <div class="hero_content_wrapper">
+        
+        <!-- Top Split: Authority Headline (Left) & Sovereign Quick Links (Right) -->
+        <div class="gateway_header_layout">
+          <div class="gateway_left_col">
+            <!-- Left-Aligned Main Authority Headline -->
+            <h2 class="hero_main_headline">
+              Building Bangladesh’s <span class="hero_headline_accent">$150 Billion</span><br>
+              Deep-Water Sovereign Gateway
+            </h2>
+
+            <!-- Accent Line -->
+            <div class="hero_accent_line" aria-hidden="true"></div>
+
+            <!-- Subtitle Paragraph (Distilled & Authoritative) -->
+            <p class="hero_description" data-en="Maheshkhali Integrated Development Authority orchestrates 34,000 acres of deep-sea logistics, clean energy transition, high-value manufacturing, and protected marine ecosystems through 2056." data-bn="মহেশখালী সমন্বিত উন্নয়ন কর্তৃপক্ষ ২০৫৬ সালের মধ্যে ৩৪,০০০ একর জুড়ে গভীর সমুদ্রবন্দর, জ্বালানি সরবরাহ, শিল্প নগরী ও সামুদ্রিক জীববৈচিত্র্যের সমন্বিত রূপান্তর পরিচালনা করছে।">
+              Maheshkhali Integrated Development Authority orchestrates 34,000 acres of deep-sea logistics, clean energy transition, high-value manufacturing, and protected marine ecosystems through 2056.
+            </p>
+
+            <!-- Institutional Accreditation Badge / Seal Note (Singular Official Placement) -->
+            <div class="gateway_authority_note">
+              <span class="auth_note_badge" data-en="STATUTORY JURISDICTION · ACT NO. 84 OF 2026" data-bn="সংবিধিবদ্ধ অধিক্ষেত্র · আইন নম্বর ৮৪ / ২০২৬">STATUTORY JURISDICTION · ACT NO. 84 OF 2026</span>
+              <p class="auth_note_text" data-en="Single-window authority operating directly under the Prime Minister's / Chief Adviser's Office across 34,000 acres of deep-sea maritime and energy infrastructure." data-bn="প্রধান উপদেষ্টার / প্রধানমন্ত্রীর কার্যালয়ের সরাসরি অধীনে পরিচালিত একক কর্তৃপক্ষ, যা ৩৪,০০০ একর গভীর সমুদ্রবন্দর ও জাতীয় জ্বালানি রূপান্তর নিয়ন্ত্রণ করে।">
+                Single-window authority operating directly under the Prime Minister's / Chief Adviser's Office across 34,000 acres of deep-sea maritime and energy infrastructure.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Sovereign Quick Links Block -->
+          <div class="gateway_right_corner">
+            <div class="quick_links_panel">
+              <!-- Panel Header -->
+              <div class="ql_header">
+                <div>
+                  <span class="ql_badge" data-en="QUICK ACCESS" data-bn="দ্রুত সেবা">QUICK ACCESS</span>
+                  <h3 class="ql_title" data-en="Sovereign Quick Links" data-bn="গুরুত্বপূর্ণ পোর্টাল লিংক">Sovereign Quick Links</h3>
+                </div>
+                <div class="ql_status_chip" title="Live Authority Systems Active">
+                  <span class="ql_status_pulse"></span>
+                  <span class="ql_status_text">Live Systems</span>
+                </div>
+              </div>
+
+              <!-- Quick Links Grid of Action Buttons -->
+              <div class="ql_buttons_grid">
+                
+                <!-- Link 1: Digital OSS Portal -->
+                <a href="#ossModal" class="ql_btn open-oss-modal" data-tooltip="Single-Window Investor Clearances">
+                  <div class="ql_btn_icon_box green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ql_svg_icon"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  </div>
+                  <div class="ql_btn_content">
+                    <div class="ql_btn_label_row">
+                      <span class="ql_btn_name" data-en="One-Stop Service" data-bn="ওয়ান স্টপ সার্ভিস">One-Stop Service</span>
+                      <span class="ql_micro_tag green" data-en="Single Window" data-bn="একক জানালা">Single Window</span>
+                    </div>
+                    <span class="ql_btn_desc" data-en="Digital land allotment & NOC clearances" data-bn="জমি বরাদ্দ ও অনলাইন প্রকল্প এনওসি">Digital land allotment & NOC clearances</span>
+                  </div>
+                  <span class="ql_arrow_btn" aria-hidden="true">→</span>
+                </a>
+
+                <!-- Link 2: About MIDA Authority -->
+                <a href="about.html" class="ql_btn featured" data-tooltip="Explore Mandate & Governance">
+                  <div class="ql_btn_icon_box primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ql_svg_icon"><path d="M3 21h18"></path><path d="M3 10h18"></path><path d="M5 6l7-3 7 3"></path><path d="M4 10v11"></path><path d="M20 10v11"></path><path d="M8 14v4"></path><path d="M12 14v4"></path><path d="M16 14v4"></path></svg>
+                  </div>
+                  <div class="ql_btn_content">
+                    <div class="ql_btn_label_row">
+                      <span class="ql_btn_name" data-en="About MIDA" data-bn="মিডা কর্তৃপক্ষ">About MIDA</span>
+                      <span class="ql_micro_tag gold" data-en="Charter" data-bn="সনদ">Charter</span>
+                    </div>
+                    <span class="ql_btn_desc" data-en="Statutory charter, port metrics & governance" data-bn="আইনি কাঠামো, বন্দর ডেটা ও প্রশাসন">Statutory charter, port metrics & governance</span>
+                  </div>
+                  <span class="ql_arrow_btn" aria-hidden="true">→</span>
+                </a>
+
+                <!-- Link 3: 4 Strategic Hubs -->
+                <a href="#section-hubs" class="ql_btn" data-tooltip="Explore The 4 Strategic Hubs">
+                  <div class="ql_btn_icon_box teal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ql_svg_icon"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  </div>
+                  <div class="ql_btn_content">
+                    <div class="ql_btn_label_row">
+                      <span class="ql_btn_name" data-en="4 Strategic Hubs" data-bn="৪টি প্রধান হাব">4 Strategic Hubs</span>
+                      <span class="ql_micro_tag blue" data-en="Pillars" data-bn="স্তম্ভ">Pillars</span>
+                    </div>
+                    <span class="ql_btn_desc" data-en="Port, Clean Energy, SEZs & Fisheries" data-bn="বন্দর, জ্বালানি, শিল্প ও ব্লু-ইকোনমি">Port, Clean Energy, SEZs & Fisheries</span>
+                  </div>
+                  <span class="ql_arrow_btn" aria-hidden="true">→</span>
+                </a>
+
+                <!-- Link 4: Spatial Red Line & Zoning -->
+                <a href="about.html#section-zoning" class="ql_btn" data-tooltip="Kashima Model 54/46 Demarcation">
+                  <div class="ql_btn_icon_box red">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ql_svg_icon"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                  </div>
+                  <div class="ql_btn_content">
+                    <div class="ql_btn_label_row">
+                      <span class="ql_btn_name" data-en="Spatial Red Line" data-bn="স্প্যাশিয়াল রেড লাইন">Spatial Red Line</span>
+                      <span class="ql_micro_tag red" data-en="Zoning" data-bn="জোনিং">Zoning</span>
+                    </div>
+                    <span class="ql_btn_desc" data-en="Non-negotiable zoning demarcation" data-bn="ভারী শিল্প ও নাগরিক পরিবেশ সীমানা">Non-negotiable zoning demarcation</span>
+                  </div>
+                  <span class="ql_arrow_btn" aria-hidden="true">→</span>
+                </a>
+
+                <!-- Link 5: Mega-Projects Tracker -->
+                <a href="about.html#section-projects" class="ql_btn" data-tooltip="Live Project Progress Tracker">
+                  <div class="ql_btn_icon_box green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ql_svg_icon"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                  </div>
+                  <div class="ql_btn_content">
+                    <div class="ql_btn_label_row">
+                      <span class="ql_btn_name" data-en="Mega-Projects" data-bn="মেগা প্রকল্পসমূহ">Mega-Projects</span>
+                      <span class="ql_micro_tag green" data-en="27 Projects" data-bn="২৭টি প্রকল্প">27 Projects</span>
+                    </div>
+                    <span class="ql_btn_desc" data-en="Execution tracker across 27 mega initiatives" data-bn="বাস্তবায়ন অগ্রগতি ট্র্যাকিং ম্যাট্রিক্স">Execution tracker across 27 mega initiatives</span>
+                  </div>
+                  <span class="ql_arrow_btn" aria-hidden="true">→</span>
+                </a>
+
+                <!-- Link 6: Master Roadmap 2025-2056 -->
+                <a href="#section-roadmap" class="ql_btn" data-tooltip="Master Implementation Roadmap">
+                  <div class="ql_btn_icon_box gold">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ql_svg_icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  </div>
+                  <div class="ql_btn_content">
+                    <div class="ql_btn_label_row">
+                      <span class="ql_btn_name" data-en="2025–2056 Roadmap" data-bn="২০২৫–২০৫৬ রোডম্যাপ">2025–2056 Roadmap</span>
+                      <span class="ql_micro_tag gold" data-en="Phases" data-bn="পর্যায়ক্রম">Phases</span>
+                    </div>
+                    <span class="ql_btn_desc" data-en="4 distinct statutory development phases" data-bn="চারটি পর্যায়ক্রমিক বাস্তবায়ন রূপরেখা">4 distinct statutory development phases</span>
+                  </div>
+                  <span class="ql_arrow_btn" aria-hidden="true">→</span>
+                </a>
+
+              </div>
+
+              <!-- Quick Action Bottom Bar -->
+              <div class="ql_footer_bar">
+                <div class="ql_footer_left">
+                  <span class="ql_footer_lbl" data-en="Need Official Documentation?" data-bn="দাপ্তরিক তথ্য ও গেজেট প্রয়োজন?">Need Official Documentation?</span>
+                  <span class="ql_footer_sub" data-en="Official gazettes, masterplans & maps" data-bn="সরকারি গেজেট, মহাপরিকল্পনা ও মানচিত্র">Official gazettes, masterplans & maps</span>
+                </div>
+                <a href="about.html" class="ql_action_link_btn" data-en="Open About MIDA Dossier →" data-bn="মিডা পরিচিতি দেখুন →">Open About MIDA Dossier →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- High-Performance Architectural Telemetry Pillar Bar Chart Dock (Exact Match to Uploaded Image) -->
+        <div class="hero_stats_grid hero_pillar_chart emerged" role="region" aria-label="Sovereign Strategic Capacity Telemetry Pillar Chart">
+          
+          <!-- Centered Section Title matching Image -->
+          <h3 class="telemetry_chart_main_title">TELEMETRY PILLAR CHART</h3>
+
+          <!-- 3 High-Fidelity Glassmorphic Columns Grid -->
+          <div class="pillar_columns_wrapper">
+            
+            <!-- 1. VALUATION: Ascending Trajectory Graph -->
+            <div class="stat_card pillar_item graph_card">
+              <div class="card_header_row">
+                <span class="card_metric_label">VALUATION</span>
+                <button class="card_chevron_btn" aria-label="Valuation details">›</button>
+              </div>
+              <div class="card_main_val stat_value" data-target="150" data-prefix="$" data-suffix="B+">$150B+</div>
+              <div class="card_sub_desc">Net Asset Value</div>
+
+              <div class="card_graph_body valuation_graph_body">
+                <div class="graph_y_axis">
+                  <span>160B</span>
+                  <span>140B</span>
+                  <span>120B</span>
+                  <span>90B</span>
+                  <span>60B</span>
+                  <span>30B</span>
+                  <span>0</span>
+                </div>
+                <div class="graph_canvas_area">
+                  <svg class="telemetry_svg_valuation" viewBox="0 0 280 150" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="valNeonAreaGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#10B981" stop-opacity="0.38" />
+                        <stop offset="70%" stop-color="#059669" stop-opacity="0.1" />
+                        <stop offset="100%" stop-color="#059669" stop-opacity="0.0" />
+                      </linearGradient>
+                      <linearGradient id="valNeonLineGrad" x1="0" y1="1" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#10B981" />
+                        <stop offset="50%" stop-color="#22C55E" />
+                        <stop offset="100%" stop-color="#4ADE80" />
+                      </linearGradient>
+                      <filter id="neonGlowVal" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feMerge>
+                          <feMergeNode in="blur"/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <!-- Horizontal Faint Gridlines -->
+                    <line x1="0" y1="18" x2="280" y2="18" class="svg_gridline" />
+                    <line x1="0" y1="44" x2="280" y2="44" class="svg_gridline" />
+                    <line x1="0" y1="70" x2="280" y2="70" class="svg_gridline" />
+                    <line x1="0" y1="96" x2="280" y2="96" class="svg_gridline" />
+                    <line x1="0" y1="122" x2="280" y2="122" class="svg_gridline" />
+                    <line x1="0" y1="144" x2="280" y2="144" class="svg_gridline" />
+
+                    <!-- Area Fill -->
+                    <path class="val_area_path" fill="url(#valNeonAreaGrad)" d="M 8 138 Q 65 105, 115 92 T 205 52 L 270 18 L 270 144 L 8 144 Z" />
+                    <!-- Animated Glowing Line -->
+                    <path class="val_neon_line" fill="none" stroke="url(#valNeonLineGrad)" stroke-width="3" filter="url(#neonGlowVal)" d="M 8 138 Q 65 105, 115 92 T 205 52 L 270 18" />
+                    <!-- Peak Glow Dot -->
+                    <circle class="val_peak_pulse" cx="270" cy="18" r="5" fill="#4ADE80" />
+                  </svg>
+                  <div class="graph_x_axis">
+                    <span>2020</span>
+                    <span>2021</span>
+                    <span>2022</span>
+                    <span>2023</span>
+                    <span>2024</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Indicator -->
+              <div class="card_bottom_highlight">
+                <span class="card_highlight_text neon_green">+12.4% Growth</span>
+              </div>
+            </div>
+
+            <!-- 2. TERRITORY: Multi-Bar Allocation Chart -->
+            <div class="stat_card pillar_item graph_card">
+              <div class="card_header_row">
+                <span class="card_metric_label">TERRITORY</span>
+                <button class="card_chevron_btn" aria-label="Territory details">›</button>
+              </div>
+              <div class="card_main_val stat_value" data-target="34000" data-suffix=" Ac">34,000 Ac</div>
+              <div class="card_sub_desc">Operational Footprint</div>
+
+              <div class="card_graph_body territory_graph_body">
+                <div class="graph_y_axis">
+                  <span>50,000</span>
+                  <span>44,000</span>
+                  <span>30,000</span>
+                  <span>20,000</span>
+                  <span>10,000</span>
+                  <span>0</span>
+                </div>
+                <div class="territory_bars_canvas">
+                  <!-- Stacked Bar 1 -->
+                  <div class="stacked_bar_group" style="--bar-delay: 0.1s;">
+                    <div class="stacked_bar_track" style="--bar-height: 56%;">
+                      <div class="bar_top_gold" style="height: 48%;"></div>
+                      <div class="bar_bottom_green" style="height: 52%;"></div>
+                    </div>
+                    <span class="bar_x_label">Total Area</span>
+                  </div>
+
+                  <!-- Stacked Bar 2 -->
+                  <div class="stacked_bar_group" style="--bar-delay: 0.25s;">
+                    <div class="stacked_bar_track" style="--bar-height: 78%;">
+                      <div class="bar_top_gold" style="height: 38%;"></div>
+                      <div class="bar_bottom_green" style="height: 62%;"></div>
+                    </div>
+                    <span class="bar_x_label">Leased</span>
+                  </div>
+
+                  <!-- Stacked Bar 3 -->
+                  <div class="stacked_bar_group" style="--bar-delay: 0.4s;">
+                    <div class="stacked_bar_track" style="--bar-height: 64%;">
+                      <div class="bar_top_gold" style="height: 44%;"></div>
+                      <div class="bar_bottom_green" style="height: 56%;"></div>
+                    </div>
+                    <span class="bar_x_label">Available</span>
+                  </div>
+
+                  <!-- Stacked Bar 4 -->
+                  <div class="stacked_bar_group" style="--bar-delay: 0.55s;">
+                    <div class="stacked_bar_track" style="--bar-height: 94%;">
+                      <div class="bar_top_gold" style="height: 34%;"></div>
+                      <div class="bar_bottom_green" style="height: 66%;"></div>
+                    </div>
+                    <span class="bar_x_label">Reserve</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Indicator -->
+              <div class="card_bottom_highlight">
+                <span class="card_highlight_text neon_green">78% Utilization</span>
+              </div>
+            </div>
+
+            <!-- 3. PORT DRAFT: Sounder Depth Gauge & Container Ship -->
+            <div class="stat_card pillar_item graph_card">
+              <div class="card_header_row">
+                <span class="card_metric_label">PORT DRAFT</span>
+                <button class="card_chevron_btn" aria-label="Port Draft details">›</button>
+              </div>
+              <div class="card_main_val stat_value" data-target="18.5" data-suffix="m">18.5m</div>
+              <div class="card_sub_desc">Vessel Capacity</div>
+
+              <div class="card_graph_body port_draft_graph_body">
+                <!-- Left: Sounder Ruler Column -->
+                <div class="draft_sounder_col">
+                  <span class="sounder_top_label">18.5m</span>
+                  <div class="sounder_ruler_track">
+                    <div class="sounder_water_fill"></div>
+                    <div class="sounder_pointer_badge">
+                      <span class="pointer_sub">Current 60 WS</span>
+                      <span class="pointer_arrow">▶ 18.5m</span>
+                    </div>
+                    <div class="sounder_ticks">
+                      <div class="tick"></div>
+                      <div class="tick"></div>
+                      <div class="tick"></div>
+                      <div class="tick"></div>
+                      <div class="tick"></div>
+                      <div class="tick"></div>
+                      <div class="tick"></div>
+                    </div>
+                  </div>
+                  <span class="sounder_bot_label">18.5m</span>
+                </div>
+
+                <!-- Right: Container Ship on Deep Water -->
+                <div class="draft_ocean_scene">
+                  <!-- Container Ship Illustration (cargoship.png) -->
+                  <div class="container_ship_asset">
+                    <img src="assets/cargoship.png" alt="Ultra-Large Container Cargo Ship at Matarbari Port" class="ship_img" loading="lazy">
+                  </div>
+
+                  <!-- Deep Water Abyss with Badge -->
+                  <div class="water_depth_abyss">
+                    <div class="water_waves_line"></div>
+                    <div class="water_abyss_gradient">
+                      <span class="vessel_badge_bold">ULTRA-LARGE</span>
+                      <span class="vessel_badge_sub">VESSEL COMPLIANT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Indicator -->
+              <div class="card_bottom_highlight">
+                <span class="card_highlight_text neon_green">Max Draft 19.5m</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Datum Axis Strip -->
+          <div class="pillar_chart_datum" aria-hidden="true">
+            <span class="datum_axis_mark">00 // SEABED DATUM</span>
+            <div class="datum_axis_line"></div>
+            <span class="datum_axis_mark">100 // MAXIMUM SOVEREIGN CAPACITY</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. The 4 Strategic Development Hubs (Webflow: section_hubs)
+       ========================================================================== -->
+  <section id="section-hubs" class="section_hubs section_padding">
+    <div class="container_large">
+      <div class="text-center">
+        <span class="tagline_pill gold" data-en="Economic Pillars" data-bn="অর্থনৈতিক স্তম্ভ">Economic Pillars</span>
+        <h2 class="heading_section" data-en="The 4 Interconnected Strategic Hubs" data-bn="৪টি পরস্পরসংযুক্ত কৌশলগত হাব">The 4 Interconnected Strategic Hubs</h2>
+        <p class="paragraph_subheading" data-en="A self-sustaining coastal ecosystem where port infrastructure enables global trade, energy fuels industry, manufacturing creates high-value jobs, and marine fisheries preserve coastal wealth." data-bn="একটি স্বনির্ভর উপকূলীয় ইকোসিস্টেম যেখানে বন্দর বাণিজ্যকে সম্ভব করে, জ্বালানি শক্তি জোগায়, এবং শিল্প কর্মসংস্থান সৃষ্টি করে।">
+          A self-sustaining coastal ecosystem where port infrastructure enables global trade, energy fuels industry, manufacturing creates high-value jobs, and marine fisheries preserve coastal wealth.
+        </p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="hubs_tab_nav">
+        <button class="hub_tab_btn active" data-hub="hub-port">⚓ Port & Logistics Hub</button>
+        <button class="hub_tab_btn" data-hub="hub-energy">⚡ Power & Energy Hub</button>
+        <button class="hub_tab_btn" data-hub="hub-manufacturing">🏭 Manufacturing & SEZs</button>
+        <button class="hub_tab_btn" data-hub="hub-fishing">🐟 Blue Economy & Fishing</button>
+      </div>
+
+      <!-- Tab Panel 1: Port -->
+      <div id="hub-port" class="hub_content_panel active">
+        <div class="hub_left_copy">
+          <span class="tagline_pill">Gateway to Global Trade</span>
+          <h3>Deepest Ocean Terminal for Bangladesh & Beyond</h3>
+          <p style="color:var(--color-text-muted);">
+            With an <strong>18.5m MSL draft</strong> and 14.3 km navigational channel, Matarbari eliminates feeder vessel dependency. Directly berthing 8,000 TEU container mother vessels 24/7 without tidal waiting windows, it cuts export turnaround from 45 to 23 days.
+          </p>
+          <div class="hub_metrics_box">
+            <div class="metric_item">
+              <div class="metric_item_val">18.5m</div>
+              <div class="metric_item_lbl">Channel Depth (MSL)</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">8,000 TEU</div>
+              <div class="metric_item_lbl">Direct Vessel Capacity</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">40–45%</div>
+              <div class="metric_item_lbl">National Container Volume</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">$4.0 Billion</div>
+              <div class="metric_item_lbl">Annual Logistics Savings</div>
+            </div>
+          </div>
+          <a href="about.html#section-projects" class="btn_teal">View Port Phase 1 & 2 Details →</a>
+        </div>
+        <div class="hub_right_card">
+          <img src="assets/hero_panoramic.jpeg" alt="Deep Sea Port Operations">
+          <h4 style="font-size:1.1rem; color:var(--color-navy-900);">Port Infrastructure Highlights</h4>
+          <p style="font-size:0.875rem; color:var(--color-text-muted);">
+            Includes container terminal, multi-purpose terminal, 27 km Port Access Road with 14 bridges, Chakaria Intermodal Yard (IMY), and proposed AIS Singapore commercial ship drydock ($1.0B FDI).
+          </p>
+        </div>
+      </div>
+
+      <!-- Tab Panel 2: Energy -->
+      <div id="hub-energy" class="hub_content_panel">
+        <div class="hub_left_copy">
+          <span class="tagline_pill gold">National Energy Spine</span>
+          <h3>Powering 10.6 GW & 42 MTPA Energy Base</h3>
+          <p style="color:var(--color-text-muted);">
+            Transitioning Bangladesh into a clean energy era. The hub anchors the operational 1,200 MW USC Coal Plant, SPM double pipeline system, two operational 500 MMCFD FSRUs, upcoming 3rd FSRU (600 MMCFD), utility-scale solar (950 MW), coastal wind (42 MW), and Small Modular Reactors (SMR: 300–500 MW).
+          </p>
+          <div class="hub_metrics_box">
+            <div class="metric_item">
+              <div class="metric_item_val">6,560 MW</div>
+              <div class="metric_item_lbl">Target Generation (2050)</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">1,000 MMCFD</div>
+              <div class="metric_item_lbl">Land-Based LNG Plant</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">9 MTPA</div>
+              <div class="metric_item_lbl">SPM Oil Evacuation</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">Tk 800 Cr/yr</div>
+              <div class="metric_item_lbl">SPM Sovereign Savings</div>
+            </div>
+          </div>
+          <a href="about.html#section-projects" class="btn_teal">Explore Energy Projects →</a>
+        </div>
+        <div class="hub_right_card">
+          <div style="background:#0F172A; border-radius:12px; padding:2rem; color:#FFFFFF; margin-bottom:1rem; text-align:center;">
+            <span style="font-size:2rem; font-weight:800; color:var(--color-gold-400);">SPM System Active</span>
+            <p style="font-size:0.85rem; color:#94A3B8; margin-top:0.5rem;">Unloading crude oil in 3 days instead of 9 days, directly to Eastern Refinery Ltd.</p>
+          </div>
+          <h4 style="font-size:1.1rem; color:var(--color-navy-900);">Clean Transition Policy</h4>
+          <p style="font-size:0.875rem; color:var(--color-text-muted);">
+            Greenfield coal units 5–8 formally cancelled, saving 1,594 acres for utility solar, multimodal logistics, and green hydrogen bunkering.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tab Panel 3: Manufacturing -->
+      <div id="hub-manufacturing" class="hub_content_panel">
+        <div class="hub_left_copy">
+          <span class="tagline_pill">Industrial Powerhouse</span>
+          <h3>8,500 Acres Dedicated to High-Value Industry</h3>
+          <p style="color:var(--color-text-muted);">
+            Moving from raw extraction to high-margin downstream production. Dhalghata SEZ (SEZ-5 & SEZ-3) hosts major petrochemical, green steel, and specialized manufacturing complexes with high-capacity industrial power, desalination utilities, and direct deep-sea quay connections.
+          </p>
+          <div class="hub_metrics_box">
+            <div class="metric_item">
+              <div class="metric_item_val">770 Acres</div>
+              <div class="metric_item_lbl">Allocated in SEZ-5</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">510 Acres</div>
+              <div class="metric_item_lbl">TK Group (Samuda Chemical)</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">200,000 BPD</div>
+              <div class="metric_item_lbl">Planned Refinery Complex</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">300+</div>
+              <div class="metric_item_lbl">Japanese JETRO Pipeline</div>
+            </div>
+          </div>
+          <a href="#ossModal" class="btn_teal open-oss-modal">Apply for Industrial Land (OSS) →</a>
+        </div>
+        <div class="hub_right_card">
+          <img src="assets/three_phase_rollout.jpeg" alt="Industrial Rollout Roadmap">
+          <h4 style="font-size:1.1rem; color:var(--color-navy-900);">Target Industrial Clusters</h4>
+          <p style="font-size:0.875rem; color:var(--color-text-muted);">
+            Petrochemical refining, electric arc furnace steel (BSRM), Gree air conditioning assembly, pharmaceutical formulations, and marine biotechnology.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tab Panel 4: Fishing -->
+      <div id="hub-fishing" class="hub_content_panel">
+        <div class="hub_left_copy">
+          <span class="tagline_pill">Blue Economy Preservation</span>
+          <h3>Sustainable Offshore Harvest & Global Seafood Brand</h3>
+          <p style="color:var(--color-text-muted);">
+            Transforming traditional subsistence fishing into an export-oriented blue economy. Combining modern deep-sea harvesting fleets with terrestrial Recirculating Aquaculture Systems (RAS) and temperature-controlled cold chains.
+          </p>
+          <div class="hub_metrics_box">
+            <div class="metric_item">
+              <div class="metric_item_val">$500M</div>
+              <div class="metric_item_lbl">Agile Resources (RAS PPP)</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">12 Vessels</div>
+              <div class="metric_item_lbl">Modern Deep-Sea Trawlers</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">50 Acres</div>
+              <div class="metric_item_lbl">Marine Aquaculture Park</div>
+            </div>
+            <div class="metric_item">
+              <div class="metric_item_val">Tk 6,145 Cr</div>
+              <div class="metric_item_lbl">National Seafood Export Base</div>
+            </div>
+          </div>
+          <a href="about.html#section-care" class="btn_teal">See Fishing Livelihood Care →</a>
+        </div>
+        <div class="hub_right_card">
+          <div style="background:#0F172A; border-radius:12px; padding:2rem; color:#FFFFFF; margin-bottom:1rem; text-align:center;">
+            <span style="font-size:1.8rem; font-weight:800; color:var(--color-teal-400);">Marine Sanctuary Protection</span>
+            <p style="font-size:0.85rem; color:#94A3B8; margin-top:0.5rem;">Statutory mandate to protect local shrimp culture, coastal marine fish nursery zones, and paan boroj.</p>
+          </div>
+          <h4 style="font-size:1.1rem; color:var(--color-navy-900);">Global Certification & Traceability</h4>
+          <p style="font-size:0.875rem; color:var(--color-text-muted);">
+            Building international HACCP-compliant testing laboratories and cryogenic cold storage directly at the port quay for premium global exports.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. Master Implementation Roadmap (2025-2056)
+       ========================================================================== -->
+  <section id="section-roadmap" class="section_roadmap_showcase section_padding">
+    <div class="container_large">
+      
+      <!-- Section Centered Header -->
+      <div class="roadmap_header_center text-center">
+        <span class="roadmap_eyebrow" data-en="STATUTORY IMPLEMENTATION ROADMAP" data-bn="সংবিধিবদ্ধ বাস্তবায়ন রোডম্যাপ">STATUTORY IMPLEMENTATION ROADMAP</span>
+        <h2 class="roadmap_main_title" data-en="2025–2056 Master Roadmap" data-bn="২০২৫–২০৫৬ মহাপরিকল্পনা রোডম্যাপ">2025–2056 Master Roadmap</h2>
+        <p class="roadmap_lead_text" data-en="Phased institutional and physical execution framework transitioning Maheshkhali from foundational energy-port spines to a $150 Billion regional blue economy powerhouse." data-bn="প্রাথমিক জ্বালানি ও বন্দর অবকাঠামো থেকে শুরু করে ১৫০ বিলিয়ন ডলারের আঞ্চলিক ব্লু-ইকোনমি শক্তিকেন্দ্রে রূপান্তরের পর্যায়ক্রমিক বাস্তবায়ন রূপরেখা।">
+          Phased institutional and physical execution framework transitioning Maheshkhali from foundational energy-port spines to a $150 Billion regional blue economy powerhouse.
+        </p>
+      </div>
+
+      <!-- Alternating Roadmap Track Container -->
+      <div class="roadmap_track_container scroll_reveal_init">
+        
+        <div class="roadmap_grid">
+          <!-- The continuous horizontal line in Row 2 -->
+          <div class="roadmap_spine_line" aria-hidden="true"></div>
+
+          <!-- Step 1 (2026): Card Above -->
+          <div class="roadmap_step step_1 step_above">
+            <div class="roadmap_card_box">
+              <span class="roadmap_step_tag" data-en="2026" data-bn="২০২৬">2026</span>
+              <div class="roadmap_card">
+                <h3 class="roadmap_card_title" data-en="Foundation" data-bn="প্রাতিষ্ঠানিক ভিত্তি">Foundation</h3>
+                <p class="roadmap_card_desc" data-en="Enactment of statutory Act No. 84 of 2026 under PMO/CAO, single-window OSS mandate, and 1,200 MW ultra-supercritical power grid synchronization." data-bn="প্রধানমন্ত্রীর কার্যালয়ের অধীনে মিডা আইন ২০২৬ (৮৪ নং আইন) প্রণয়ন, ওয়ান-স্টপ সার্ভিস (OSS) চালুকরণ এবং ১২০০ মেগাওয়াট বিদ্যুৎ গ্রিড সংযোগ।">
+                  Enactment of statutory Act No. 84 of 2026 under PMO/CAO, single-window OSS mandate, and 1,200 MW ultra-supercritical power grid synchronization.
+                </p>
+                <div class="roadmap_pills">
+                  <span class="roadmap_pill" data-en="Act Enacted" data-bn="আইন প্রণয়ন">Act Enacted</span>
+                  <span class="roadmap_pill" data-en="1,200 MW Sync" data-bn="১২০০ মেগাওয়াট সিঙ্ক">1,200 MW Sync</span>
+                  <span class="roadmap_pill" data-en="Spatial Red Line" data-bn="স্প্যাশিয়াল রেড লাইন">Spatial Red Line</span>
+                </div>
+              </div>
+            </div>
+            <div class="roadmap_dot_box">
+              <div class="roadmap_ring_dot" title="2026 Milestone"></div>
+            </div>
+          </div>
+
+          <!-- Step 2 (2030): Card Below -->
+          <div class="roadmap_step step_2 step_below">
+            <div class="roadmap_dot_box">
+              <div class="roadmap_ring_dot" title="2030 Milestone"></div>
+            </div>
+            <div class="roadmap_card_box">
+              <span class="roadmap_step_tag" data-en="2030" data-bn="২০৩০">2030</span>
+              <div class="roadmap_card">
+                <h3 class="roadmap_card_title" data-en="Gateway" data-bn="গভীর সমুদ্র তোরণ">Gateway</h3>
+                <p class="roadmap_card_desc" data-en="Matarbari Deep-Sea Port Phase 1 operational (18.5m MSL draft), 27 km Port Access Expressway to N1, and 650-acre URAP civic resettlement." data-bn="মাতারবাড়ী গভীর সমুদ্রবন্দর পর্যায়-১ চালু (১৮.৫ মি. ড্রাফট), ২৭ কিমি এক্সপ্রেসওয়ে এবং ৬৫০ একর ইউআরএপি নাগরিক পুনর্বাসন বাস্তবায়ন।">
+                  Matarbari Deep-Sea Port Phase 1 operational (18.5m MSL draft), 27 km Port Access Expressway to N1, and 650-acre URAP civic resettlement.
+                </p>
+                <div class="roadmap_pills">
+                  <span class="roadmap_pill" data-en="18.5m Port Draft" data-bn="১৮.৫ মি. ড্রাফট">18.5m Port Draft</span>
+                  <span class="roadmap_pill" data-en="0.8M TEUs" data-bn="০.৮ মিলিয়ন টিইইউ">0.8M TEUs</span>
+                  <span class="roadmap_pill" data-en="27 km Expressway" data-bn="২৭ কিমি এক্সপ্রেসওয়ে">27 km Expressway</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 (2040): Card Above -->
+          <div class="roadmap_step step_3 step_above">
+            <div class="roadmap_card_box">
+              <span class="roadmap_step_tag" data-en="2040" data-bn="২০৪০">2040</span>
+              <div class="roadmap_card">
+                <h3 class="roadmap_card_title" data-en="Industrial Ecosystem" data-bn="শিল্প ইকোসিস্টেম">Industrial Ecosystem</h3>
+                <p class="roadmap_card_desc" data-en="Deployment of 150k–200k BPD oil refinery, clean energy scaling to 5,660 MW with 300 MW SMR nuclear, and 770-acre Dhalghata SEZ tenants." data-bn="১৫০-২০০ হাজার বিপিডি তেল শোধনাগার, ৫,৬৬০ মেগাওয়াট জ্বালানি সক্ষমতা, ৩০০ মেগাওয়াট এসএমআর নিউক্লিয়ার এবং ঢালঘাটা অর্থনৈতিক অঞ্চল।">
+                  Deployment of 150k–200k BPD oil refinery, clean energy scaling to 5,660 MW with 300 MW SMR nuclear, and 770-acre Dhalghata SEZ tenants.
+                </p>
+                <div class="roadmap_pills">
+                  <span class="roadmap_pill" data-en="200k BPD Refinery" data-bn="২০০ হাজার বিপিডি শোধনাগার">200k BPD Refinery</span>
+                  <span class="roadmap_pill" data-en="5,660 MW Power" data-bn="৫,৬৬০ মেগাওয়াট বিদ্যুৎ">5,660 MW Power</span>
+                  <span class="roadmap_pill" data-en="300 MW SMR Nuclear" data-bn="৩০০ মেগাওয়াট এসএমআর">300 MW SMR Nuclear</span>
+                </div>
+              </div>
+            </div>
+            <div class="roadmap_dot_box">
+              <div class="roadmap_ring_dot" title="2040 Milestone"></div>
+            </div>
+          </div>
+
+          <!-- Step 4 (2056): Card Below -->
+          <div class="roadmap_step step_4 step_below">
+            <div class="roadmap_dot_box">
+              <div class="roadmap_ring_dot" title="2056 Milestone"></div>
+            </div>
+            <div class="roadmap_card_box">
+              <span class="roadmap_step_tag" data-en="2056" data-bn="২০৫৬">2056</span>
+              <div class="roadmap_card">
+                <h3 class="roadmap_card_title" data-en="Sovereign Metropolis" data-bn="সার্বভৌম মেট্রোপলিস">Sovereign Metropolis</h3>
+                <p class="roadmap_card_desc" data-en="2.5 km iconic Maheshkhali Channel Bridge to Cox’s Bazar, >3.2M TEUs maritime gateway, 10.6 GW energy spine, and $150B Blue Economy output (6.5% GDP)." data-bn="কক্সবাজার সংযোগকারী ২.৫ কিমি মহেশখালী সেতু, >৩.২ মিলিয়ন টিইইউ কনটেইনার হ্যান্ডলিং এবং জিডিপিতে ৬.৫% অবদানসহ ১৫০ বিলিয়ন ডলারের ইকোনমি।">
+                  2.5 km iconic Maheshkhali Channel Bridge to Cox’s Bazar, >3.2M TEUs maritime gateway, 10.6 GW energy spine, and $150B Blue Economy output (6.5% GDP).
+                </p>
+                <div class="roadmap_pills">
+                  <span class="roadmap_pill" data-en="2.5 km Fixed Bridge" data-bn="২.৫ কিমি সেতু">2.5 km Fixed Bridge</span>
+                  <span class="roadmap_pill" data-en=">3.2M TEUs" data-bn=">৩.২ মিলিয়ন টিইইউ">>3.2M TEUs</span>
+                  <span class="roadmap_pill" data-en="$150B Output" data-bn="১৫০ বিলিয়ন ডলার">$150B Output</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Institutional Framework Footer Ribbon -->
+        <div class="roadmap_footer_ribbon">
+          <div class="ribbon_item">
+            <span class="ribbon_label" data-en="30-YEAR HORIZON" data-bn="৩০ বছর মেয়াদি পরিকল্পনা">30-YEAR HORIZON</span>
+            <span class="ribbon_val">2025 → 2056</span>
+          </div>
+          <div class="ribbon_divider"></div>
+          <div class="ribbon_item">
+            <span class="ribbon_label" data-en="STATUTORY JURISDICTION" data-bn="সংবিধিবদ্ধ এখতিয়ার">STATUTORY JURISDICTION</span>
+            <span class="ribbon_val">34,000 Acres</span>
+          </div>
+          <div class="ribbon_divider"></div>
+          <div class="ribbon_item">
+            <span class="ribbon_label" data-en="KASHIMA ZONING RATIO" data-bn="কাশিমা জোনিং অনুপাত">KASHIMA ZONING RATIO</span>
+            <span class="ribbon_val">54% Industrial / 46% Urban &amp; Civic</span>
+          </div>
+          <div class="ribbon_divider"></div>
+          <div class="ribbon_item">
+            <span class="ribbon_label" data-en="SOVEREIGN IMPACT" data-bn="সার্বভৌম প্রভাব">SOVEREIGN IMPACT</span>
+            <span class="ribbon_val">6.0% – 6.5% of National GDP</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. Citizen Grievance Redress (GRS) & Contact (Webflow: section_contact)
+       ========================================================================== -->
+  <section id="section-contact" class="section_contact section_padding">
+    <div class="container_large">
+      <div class="contact_dual_layout">
+        
+        <!-- Left: Office Locations & Citizen Charter -->
+        <div>
+          <span class="tagline_pill gold" data-en="Public Engagement" data-bn="নাগরিক সেবা">Public Engagement</span>
+          <h2 class="heading_section white" data-en="Citizen Engagement & Grievance Desk (GRS)" data-bn="অভিযোগ প্রতিকার ও যোগাযোগ">Citizen Engagement & Grievance Desk (GRS)</h2>
+          <p style="color:#CBD5E1; margin-bottom:2rem;">
+            Whether you are an international investor seeking project NOCs, a local resident submitting URAP resettlement paperwork, or an environmental researcher, the MIDA Secretariat maintains dedicated desks for prompt assistance.
+          </p>
+
+          <div style="background:rgba(255,255,255,0.05); padding:1.5rem; border-radius:12px; border:1px solid rgba(255,255,255,0.1); margin-bottom:1.5rem;">
+            <strong style="color:var(--color-gold-400); font-size:1.1rem; display:block; margin-bottom:0.4rem;">📍 Principal Head Office</strong>
+            <p style="color:#E2E8F0; font-size:0.9rem;">Maheshkhali Integrated Development Authority Complex</p>
+            <p style="color:#94A3B8; font-size:0.85rem;">Maheshkhali Upazila, Cox's Bazar District, Bangladesh.</p>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.05); padding:1.5rem; border-radius:12px; border:1px solid rgba(255,255,255,0.1);">
+            <strong style="color:var(--color-teal-400); font-size:1.1rem; display:block; margin-bottom:0.4rem;">🏛️ Dhaka Liaison Secretariat</strong>
+            <p style="color:#E2E8F0; font-size:0.9rem;">Chief Adviser's / Prime Minister's Office</p>
+            <p style="color:#94A3B8; font-size:0.85rem;">Tejgaon, Dhaka-1215, Bangladesh.</p>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Contact & Grievance Form -->
+        <div class="contact_form_box">
+          <h3 style="font-size:1.4rem; font-weight:800; margin-bottom:0.5rem;">Direct Secretariat Transmission</h3>
+          <p style="font-size:0.85rem; color:#94A3B8; margin-bottom:1.5rem;">Communications are automatically logged into the MIDA GRS tracking engine.</p>
+
+          <form id="citizenContactForm">
+            <div class="form_group">
+              <label for="formCategory">Inquiry Type / Department</label>
+              <select id="formCategory" class="form_select" required>
+                <option value="investor">Foreign Direct Investment (FDI) & OSS</option>
+                <option value="resettlement">URAP Resettlement & Land Verification</option>
+                <option value="noc">Project NOC Clearance Submission</option>
+                <option value="environment">Environmental & Ecology Monitoring</option>
+                <option value="general">General Administrative Query</option>
+              </select>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form_group">
+                <label for="formName">Full Name / Proponent</label>
+                <input type="text" id="formName" class="form_input" placeholder="e.g. Dr. K. Ahmed / JSL Corp" required>
+              </div>
+              <div class="form_group">
+                <label for="formEmail">Email Address</label>
+                <input type="email" id="formEmail" class="form_input" placeholder="name@organization.com" required>
+              </div>
+            </div>
+
+            <div class="form_group">
+              <label for="formPhone">Contact Phone / WhatsApp</label>
+              <input type="tel" id="formPhone" class="form_input" placeholder="+880 1XXX-XXXXXX" required>
+            </div>
+
+            <div class="form_group">
+              <label for="formMessage">Inquiry Particulars / Entitlement Details</label>
+              <textarea id="formMessage" class="form_textarea" placeholder="Detail your project specifications, plot numbers, or resettlement verification ID..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn_primary" style="width:100%; justify-content:center;">Transmitting Communication →</button>
+            <div id="formStatusMsg" style="display:none; margin-top:1rem; padding:0.8rem; background:rgba(16, 185, 129, 0.2); border:1px solid #10B981; border-radius:8px; font-size:0.85rem; color:#A7F3D0;"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. Sovereign Footer (Webflow: footer_component)
+       ========================================================================== -->
+  <footer id="section-gazettes" class="footer_sovereign">
+    <div class="container_large">
+      <div class="footer_grid">
+        
+        <div class="footer_col">
+          <div class="brand_lockup" style="margin-bottom:1rem;">
+            <div class="brand_logo_circle">M</div>
+            <div class="brand_title_group">
+              <span class="brand_title">MIDA</span>
+              <span class="brand_subtitle">Maheshkhali Integrated Dev. Authority</span>
+            </div>
+          </div>
+          <p style="color:#94A3B8; font-size:0.85rem; line-height:1.6; max-width:320px;">
+            The statutory guardian of Bangladesh's premier $150 Billion deep-sea industrial gateway.
+          </p>
+          <div style="margin-top:1.5rem; display:flex; gap:0.75rem;">
+            <span style="display:inline-block; padding:0.3rem 0.6rem; background:rgba(255,255,255,0.06); border-radius:4px; font-size:0.75rem;">Sovereign Mandate</span>
+            <span style="display:inline-block; padding:0.3rem 0.6rem; background:rgba(255,255,255,0.06); border-radius:4px; font-size:0.75rem;">BIG-B Core Node</span>
+          </div>
+        </div>
+
+        <div class="footer_col">
+          <h4>Statutory Downloads</h4>
+          <ul class="footer_links">
+            <li><a href="assets/jurisdiction_map.png" target="_blank">MIDA Jurisdiction Map (1:130k)</a></li>
+            <li><a href="assets/spatial_red_line.jpeg" target="_blank">Spatial Red Line Decree PDF</a></li>
+            <li><a href="assets/cadastral_boundary.png" target="_blank">13 Mouza Cadastral Cadre</a></li>
+            <li><a href="about.html#section-governance">Governing Board Standing Orders</a></li>
+            <li><a href="about.html#section-investor">Customs &amp; Tariff Gazettes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_col">
+          <h4>Core Portals</h4>
+          <ul class="footer_links">
+            <li><a href="#ossModal" class="open-oss-modal">One-Stop Service (OSS)</a></li>
+            <li><a href="about.html#section-care">URAP Resettlement Protocol</a></li>
+            <li><a href="about.html#section-projects">Mega-Project Progress Reports</a></li>
+            <li><a href="#section-contact">Citizen Grievance Redress (GRS)</a></li>
+            <li><a href="about.html#section-leadership">Official Personnel Directory</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_col">
+          <h4>Sovereign Affiliation</h4>
+          <p style="font-size:0.85rem; color:#94A3B8; margin-bottom:1rem;">
+            A statutory authority directly under the Chief Adviser's / Prime Minister's Office, Government of the People's Republic of Bangladesh.
+          </p>
+          <div style="background:rgba(255,255,255,0.05); padding:0.75rem 1rem; border-radius:8px; border:1px solid rgba(255,255,255,0.1); font-size:0.8rem;">
+            Emergency Maritime Hotlines: <strong>+880-2-44826719</strong><br>
+            Secretariat: <strong>sarwar6300@gmail.com</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer_bottom_row">
+        <p>© 2026 Maheshkhali Integrated Development Authority (MIDA). All Rights Reserved.</p>
+        <p style="color:#64748B; font-size:0.8rem;">Design System: Webflow Client-First Compatible BEM Architecture</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       9. Interactive Modal: Investor One-Stop Service (OSS) Simulator
+       ========================================================================== -->
+  <div id="ossModal" style="display:none; position:fixed; inset:0; background:rgba(15, 23, 42, 0.88); backdrop-filter:blur(8px); z-index:2000; align-items:center; justify-content:center; padding:1.5rem;">
+    <div style="background:#FFFFFF; border-radius:18px; max-width:680px; width:100%; padding:2.5rem; position:relative; box-shadow:0 20px 40px rgba(0,0,0,0.4); max-height:90vh; overflow-y:auto;">
+      <button id="closeModalBtn" style="position:absolute; top:1.25rem; right:1.25rem; font-size:1.5rem; color:#64748B; font-weight:800; background:transparent; border:none; cursor:pointer;">✕</button>
+      
+      <span class="tagline_pill gold">Digital Single Window</span>
+      <h3 style="font-size:1.75rem; font-weight:800; color:var(--color-navy-900); margin-bottom:0.5rem;">MIDA One-Stop Service (OSS)</h3>
+      <p style="font-size:0.9rem; color:var(--color-text-muted); margin-bottom:2rem;">
+        Under Section 11 of the MIDA charter, submit and track your commercial applications with statutory 15-day resolution guarantees.
+      </p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+        <div style="border:1px solid var(--color-border); border-radius:10px; padding:1rem; cursor:pointer;" onclick="alert('Proceeding to Dhalghata SEZ Plot Allocation Portal');">
+          <strong style="color:var(--color-navy-900); display:block;">1. Land Allotment</strong>
+          <span style="font-size:0.8rem; color:var(--color-text-muted);">Dhalghata SEZ-5 & SEZ-3 plots</span>
+        </div>
+        <div style="border:1px solid var(--color-border); border-radius:10px; padding:1rem; cursor:pointer;" onclick="alert('Proceeding to Project NOC Clearance Portal');">
+          <strong style="color:var(--color-navy-900); display:block;">2. Project NOC</strong>
+          <span style="font-size:0.8rem; color:var(--color-text-muted);">Master Plan compliance clearance</span>
+        </div>
+        <div style="border:1px solid var(--color-border); border-radius:10px; padding:1rem; cursor:pointer;" onclick="alert('Proceeding to Utility Interconnection Desk');">
+          <strong style="color:var(--color-navy-900); display:block;">3. Utility Grid Connect</strong>
+          <span style="font-size:0.8rem; color:var(--color-text-muted);">400kV Power, Gas & 161 MLD WTP</span>
+        </div>
+        <div style="border:1px solid var(--color-border); border-radius:10px; padding:1rem; cursor:pointer;" onclick="alert('Proceeding to Expatriate Work Permit Desk');">
+          <strong style="color:var(--color-navy-900); display:block;">4. Work Permits</strong>
+          <span style="font-size:0.8rem; color:var(--color-text-muted);">Expatriate technical personnel</span>
+        </div>
+      </div>
+
+      <div style="background:var(--color-bg-subtle); padding:1rem; border-radius:8px; font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.5rem;">
+        🔒 Direct connection to National Board of Revenue (NBR) Customs API for automated bonded cargo clearance.
+      </div>
+
+      <button class="btn_primary" style="width:100%; justify-content:center;" onclick="alert('MIDA Digital Single Window Authentication: Please log in with your BIDA / BEZA / RJSC Investor Credentials.');">
+        Authenticate with Sovereign Investor ID →
+      </button>
+    </div>
+  </div>
+
+  <!-- Interactive Logic Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
