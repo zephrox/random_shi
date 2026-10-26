@@ -1,0 +1,3562 @@
+/* ==========================================================================
+   MIDA (Maheshkhali Integrated Development Authority) Official Web Portal
+   Webflow Client-First / BEM Compatible Design System & Stylesheet
+   ========================================================================== */
+
+/* --- 1. CSS Custom Properties / Design Tokens (MIDA Civic Horizon) --- */
+:root {
+  /* Core Brand Tokens (V5 Premium Corporate - Navy & Forest Green) */
+  --color-primary: #0A2540;          /* Primary: Deep Corporate Navy */
+  --color-primary-dark: #061729;     /* Darkest Navy Shade */
+  --color-primary-light: #1D3B5C;    /* Lighter Navy/Slate */
+  --color-primary-tint: #F1F5F9;     /* Soft Navy Wash */
+
+  --color-secondary: #1E6144;        /* Secondary: Elegant Forest Green */
+  --color-secondary-dark: #123F2A;   /* Deep Forest Green */
+  --color-secondary-light: #2A7E59;  /* Vibrant Forest Green */
+  --color-secondary-accent: #22C55E; /* Modern Green Accent */
+  --color-secondary-tint: #ECFDF5;   /* Light Green Wash */
+
+  --color-tertiary: #C9A977;         /* Tertiary: Muted Corporate Gold */
+  --color-tertiary-dark: #A38558;    /* Deep Gold */
+  --color-tertiary-deep: #7D633D;    /* Contrast Gold */
+  --color-tertiary-light: #E0CBA6;   /* Pale Gold */
+  --color-tertiary-wash: #FCFAF7;    /* Warm Wash */
+
+  --color-neutral-950: #020617;      /* Deepest Slate */
+  --color-neutral-900: #0F172A;      /* Neutral Base Slate */
+  --color-neutral-800: #1E293B;      /* Elevated Dark Slate */
+  --color-neutral-700: #334155;      /* Slate Borders */
+  --color-neutral-600: #475569;      /* Muted Text Slate */
+  --color-neutral-400: #94A3B8;      /* Light Text Slate */
+  --color-neutral-300: #CBD5E1;      /* Crisp Card Outlines */
+  --color-neutral-200: #E2E8F0;      /* Grid Divider Gray */
+  --color-neutral-100: #F8FAFC;      /* Soft Silver-Grey Fill */
+
+  /* Backward-Compatible Semantic Aliases */
+  --color-navy-950: var(--color-neutral-950);
+  --color-navy-900: var(--color-neutral-900);
+  --color-navy-800: var(--color-neutral-800);
+  --color-navy-700: var(--color-neutral-700);
+
+  --color-teal-600: var(--color-secondary-dark);
+  --color-teal-500: var(--color-secondary);
+  --color-teal-400: var(--color-secondary-accent);
+
+  --color-gold-500: var(--color-tertiary-deep);
+  --color-gold-400: var(--color-tertiary);
+  --color-gold-300: var(--color-tertiary-light);
+
+  --color-red-600: #DC2626;
+  --color-red-500: #EF4444;
+
+  /* Canvas & Surfaces (V5 Premium Silver & White) */
+  --color-bg-body: #F8FAFC;          /* Premium light silver-grey background */
+  --color-bg-surface: #FFFFFF;       /* Crisp white cards */
+  --color-bg-subtle: #F1F5F9;
+  --color-border: #E2E8F0;
+  --color-border-dark: #334155;
+  --color-text-main: var(--color-neutral-900);
+  --color-text-muted: var(--color-neutral-600);
+  --color-text-light: var(--color-neutral-400);
+  --color-text-inverse: #FFFFFF;
+
+  /* Typography (Inter per MIDA Civic Horizon design specification) */
+  --font-primary: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-bangla: 'Hind Siliguri', 'Kalpurush', sans-serif;
+
+  /* Layout Containers */
+  --container-max-large: 1280px;
+  --container-max-medium: 1040px;
+  --container-padding: 1.5rem;
+
+  /* Shadows & Elevation (V5: Soft, airy shadows for elegant cards) */
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.02), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-md: 0 10px 24px -4px rgba(15, 23, 42, 0.04), 0 4px 10px -2px rgba(15, 23, 42, 0.02);
+  --shadow-lg: 0 20px 40px -4px rgba(15, 23, 42, 0.06), 0 8px 16px -4px rgba(15, 23, 42, 0.03);
+  --shadow-elevation-dark: 0 16px 36px -4px rgba(15, 23, 42, 0.45);
+  --shadow-elevation-card: 0 12px 32px -4px rgba(15, 23, 42, 0.05);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- 2. Baseline Reset & Browser Surfaces --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: #FFFFFF;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: #FFFFFF;
+  color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Master Architectural Blueprint Global Background
+   Asset: assets/background.jpg
+   Specification: Whole website background, repeat, no zoom (auto), opacity 50%
+   ========================================================================== */
+.site_global_blueprint_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('assets/background.jpg');
+  background-repeat: repeat;
+  background-size: auto; /* do not zoom in */
+  background-position: top left;
+  opacity: 0.5; /* 50% opacity */
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+
+/* Ensure all page content stacks cleanly above the fixed background layer */
+.top_sovereign_bar,
+.main_navigation,
+.section_hero_slideshow,
+.section_gateway,
+.section_padding,
+.section_hubs,
+.section_roadmap_showcase,
+.section_zoning,
+.section_projects,
+.section_care,
+.section_investor,
+.section_leadership,
+.section_contact,
+.footer_sovereign,
+.modal_backdrop,
+.oss_modal_container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Light sections allow the architectural blueprint background to show through */
+.section_gateway,
+.section_padding[id="section-about"],
+.section_hubs,
+.section_roadmap_showcase,
+.section_projects,
+.section_care,
+.section_investor,
+.section_leadership {
+  background: transparent !important;
+}
+
+/* Custom Sovereign Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-700);
+  border-radius: 5px;
+  border: 2px solid var(--color-neutral-950);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Themed Text Selection */
+::selection {
+  background: rgba(14, 77, 52, 0.35);
+  color: #FFFFFF;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* --- 3. Webflow Client-First Layout Containers --- */
+.container_large {
+  max-width: var(--container-max-large);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  width: 100%;
+}
+
+.container_medium {
+  max-width: var(--container-max-medium);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  width: 100%;
+}
+
+.section_padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section_padding_sm {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Header Headings & Text Classes */
+.text-center { text-align: center; }
+.text-gold { color: var(--color-gold-400); }
+.text-teal { color: var(--color-teal-500); }
+.text-red { color: var(--color-red-500); }
+.text-white { color: var(--color-text-inverse); }
+.text-muted { color: var(--color-text-muted); }
+
+.tagline_pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--color-secondary-tint);
+  color: var(--color-secondary-dark);
+  border: 1px solid rgba(4, 120, 87, 0.28);
+  border-radius: 999px;
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.tagline_pill.gold,
+.tagline_pill.sandstone {
+  background: var(--color-tertiary-wash);
+  color: var(--color-tertiary-deep);
+  border-color: rgba(212, 163, 115, 0.45);
+}
+
+.tagline_pill.red {
+  background: rgba(230, 57, 70, 0.12);
+  color: var(--color-red-600);
+  border-color: rgba(230, 57, 70, 0.35);
+}
+
+.heading_section {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.heading_section.white {
+  color: #FFFFFF;
+}
+
+.paragraph_subheading {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+
+/* Button Classes */
+.btn_primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-primary); /* #0E4D34 */
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 0.85rem 1.65rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(212, 163, 115, 0.4); /* Sandstone accent */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.btn_primary:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-primary-light); /* #166547 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn_primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+.btn_primary:hover::after {
+  left: 160%;
+  transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn_secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-weight: 600;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+}
+
+.btn_secondary:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn_teal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-secondary); /* #047857 */
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 0.75rem 1.4rem;
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+}
+
+.btn_teal:hover {
+  background: var(--color-secondary-dark); /* #065F46 */
+  transform: translateY(-2px);
+}
+
+/* --- 4. Top Sovereign Government Bar --- */
+.top_sovereign_bar {
+  background: #FFFFFF;
+  color: var(--color-neutral-600);
+  font-size: 0.8rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.top_bar_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top_bar_left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.top_bar_left img {
+  width: 18px;
+  height: 18px;
+}
+
+.top_bar_right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.lang_toggle_btn {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-800);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.lang_toggle_btn:hover {
+  background: var(--color-secondary-tint);
+  color: var(--color-secondary-dark);
+  border-color: var(--color-secondary);
+}
+
+/* --- 5. Main Navigation Bar --- */
+.main_navigation {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.nav_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.brand_lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-shrink: 0;
+}
+
+.brand_logo_circle {
+  width: 44px;
+  height: 44px;
+  background: var(--color-secondary);
+  border: 2px solid var(--color-tertiary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.brand_title_group {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand_title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.brand_subtitle {
+  font-size: 0.75rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav_menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.2vw, 1.35rem);
+  list-style: none;
+  flex-shrink: 0;
+}
+
+.nav_link {
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 0.2rem;
+  position: relative;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.nav_link:hover {
+  color: var(--color-secondary);
+}
+
+.nav_link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-secondary);
+  transition: width var(--transition-fast);
+}
+
+.nav_link:hover::after {
+  width: 100%;
+}
+
+.nav_actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.nav_actions .btn_primary {
+  padding: 0.6rem 1.15rem;
+  font-size: 0.825rem;
+  white-space: nowrap;
+}
+
+.mobile_toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: #FFFFFF;
+}
+
+/* --- 6. Main Hero Slideshow Section (Auto-Advancing Panoramic Vision) --- */
+.section_hero_slideshow {
+  position: relative;
+  min-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--color-neutral-950);
+  color: #FFFFFF;
+  overflow: hidden;
+  padding-top: 4.5rem;
+  padding-bottom: 2rem;
+}
+
+/* Background Slides Deck */
+.slideshow_track {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.slideshow_slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 2.0s cubic-bezier(0.16, 1, 0.3, 1), visibility 2.0s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.slideshow_slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.slide_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.0);
+  filter: brightness(1.04) contrast(1.08);
+  transition: transform 7.5s ease-out;
+}
+
+.slideshow_slide.active .slide_img {
+  transform: scale(1.06);
+}
+
+.slide_overlay_ambient {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background: radial-gradient(circle at 20% 35%, rgba(4, 120, 87, 0.25), transparent 60%),
+              radial-gradient(circle at 80% 65%, rgba(212, 163, 115, 0.15), transparent 55%);
+}
+
+.slide_overlay_gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(8, 13, 26, 0.60) 0%, rgba(15, 23, 42, 0.40) 50%, rgba(15, 23, 42, 0.15) 100%),
+              linear-gradient(to bottom, rgba(8, 13, 26, 0.20) 0%, transparent 45%, rgba(8, 13, 26, 0.50) 100%);
+}
+
+/* Content Container & Typography */
+.slideshow_content_wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 1.5rem;
+  margin-bottom: auto;
+}
+
+.slideshow_content {
+  max-width: 920px;
+  text-align: left;
+}
+
+/* Exact Triad Tag: "Integrated . Sustainable . Inclusive ." */
+.hero_triad_pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(14, 77, 52, 0.4); /* #0E4D34 tint */
+  border: 1px solid rgba(212, 163, 115, 0.5); /* #D4A373 Sandstone border */
+  border-radius: 999px;
+  margin-bottom: 1.75rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  animation: heroElementEntrance 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
+}
+
+.triad_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-secondary-accent); /* #10B981 */
+  display: inline-block;
+}
+
+.triad_text {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-tertiary); /* #D4A373 Sandstone Gold */
+}
+
+/* Slideshow Authority Headline */
+.hero_slideshow_headline {
+  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 24px rgba(8, 13, 26, 0.95), 0 1px 4px rgba(0, 0, 0, 0.9);
+  animation: heroElementEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s backwards;
+}
+
+.hero_slideshow_accent_line {
+  width: 96px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-tertiary), var(--color-secondary));
+  margin: 1.2rem 0 1.5rem 0;
+  border-radius: 2px;
+  animation: heroLineGrow 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s backwards;
+}
+
+.hero_slideshow_subhead {
+  font-size: 1.125rem;
+  color: #F1F5F9;
+  max-width: 68ch;
+  line-height: 1.68;
+  margin-bottom: 2.25rem;
+  text-shadow: 0 1px 14px rgba(8, 13, 26, 0.9);
+  animation: heroElementEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.45s backwards;
+}
+
+.hero_slideshow_cta_group {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  animation: heroElementEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.55s backwards;
+}
+
+/* Dynamic Slide Caption Bar */
+.slide_caption_strip {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  animation: heroElementEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s backwards;
+}
+
+.caption_chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #CBD5E1;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+}
+
+/* Slideshow Bottom Navigation Bar */
+.slideshow_controls_bar {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.slideshow_controls_inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slideshow_indicators {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.indicator_pill {
+  position: relative;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.indicator_pill:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(212, 163, 115, 0.5);
+}
+
+.indicator_pill.active {
+  background: rgba(14, 77, 52, 0.6);
+  border-color: var(--color-tertiary);
+}
+
+.pill_label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #E2E8F0;
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.indicator_pill.active .pill_label {
+  color: #FFFFFF;
+}
+
+/* Animated Progress bar within active indicator */
+.pill_progress_bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: rgba(212, 163, 115, 0.25);
+  transition: width 0.1s linear;
+  z-index: 1;
+}
+
+.indicator_pill.active .pill_progress_bar {
+  width: 100%;
+  transition: width 7.5s linear;
+}
+
+/* Navigation Buttons (Prev, Next, Pause) */
+.slideshow_nav_buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slide_nav_btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+}
+
+.slide_nav_btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-tertiary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* --- 7. Sovereign Gateway & Telemetry Section (Second Section on Page) --- */
+.section_hero,
+.section_gateway {
+  position: relative;
+  background: transparent;
+  color: var(--color-text-main);
+  padding-top: 5rem;
+  padding-bottom: 5.5rem;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border);
+}
+
+.hero_content_wrapper {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Gateway Header Split Layout (Equal 50/50 Columns Side-by-Side & Equal Height) */
+.gateway_header_layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: stretch;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 992px) {
+  .gateway_header_layout {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    align-items: start;
+  }
+}
+
+.gateway_left_col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Live Sovereign Telemetry Bar */
+.hero_telemetry_bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 1.15rem;
+  background: var(--color-neutral-100);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  align-self: flex-start;
+  animation: heroElementEntrance 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
+}
+
+.telemetry_pulse_ring {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+}
+
+.telemetry_pulse_ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: rgba(4, 120, 87, 0.35);
+  animation: radarPulse 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.telemetry_pulse_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+@keyframes radarPulse {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  70%, 100% { transform: scale(2.6); opacity: 0; }
+}
+
+.telemetry_badge_txt {
+  color: var(--color-secondary-dark);
+  font-weight: 700;
+  font-size: 0.785rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.telemetry_divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-neutral-400);
+}
+
+.telemetry_motto {
+  color: var(--color-tertiary-deep);
+  font-weight: 700;
+  font-size: 0.785rem;
+  letter-spacing: 0.06em;
+}
+
+/* Left-Aligned Headline */
+.hero_main_headline {
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 0;
+  letter-spacing: -0.03em;
+  text-align: left;
+  color: var(--color-navy-900);
+  text-wrap: balance;
+  animation: heroElementEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+}
+
+.hero_headline_accent {
+  color: var(--color-secondary);
+  display: inline-block;
+  font-weight: 900;
+}
+
+/* Left-Aligned Architectural Accent Line */
+.hero_accent_line {
+  height: 3px;
+  width: 96px;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-tertiary));
+  margin: 1.4rem 0 1.6rem 0;
+  border-radius: 2px;
+  animation: heroLineGrow 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s backwards;
+}
+
+@keyframes heroLineGrow {
+  0% { width: 0; opacity: 0; }
+  100% { width: 96px; opacity: 1; }
+}
+
+/* Left-Aligned Sub-Headline */
+.hero_description {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 65ch;
+  margin: 0 0 2.25rem 0;
+  line-height: 1.65;
+  text-align: left;
+  animation: heroElementEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.45s backwards;
+}
+
+/* Left-Aligned CTA Group */
+.hero_cta_group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  animation: heroElementEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.6s backwards;
+}
+
+.gateway_left_col .hero_cta_group {
+  margin-bottom: 0;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+/* Quick Statutory Pillars Strip (Balances layout height) */
+.gateway_statutory_pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin: 1.75rem 0 1rem 0;
+}
+
+.statutory_pillar_card {
+  background: var(--color-neutral-100);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.85rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.statutory_pillar_card:hover {
+  transform: translateY(-2px);
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.spc_num {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.spc_desc {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-neutral-600);
+  line-height: 1.3;
+}
+
+.section_gateway .btn_secondary {
+  background: #FFFFFF;
+  color: var(--color-navy-900);
+  border: 1px solid var(--color-border);
+}
+
+.section_gateway .btn_secondary:hover {
+  background: var(--color-neutral-100);
+  border-color: var(--color-neutral-400);
+}
+
+/* Left Column accreditation note */
+.gateway_authority_note {
+  margin-top: 1.5rem;
+  padding: 1.1rem 1.35rem;
+  background: var(--color-neutral-100);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+}
+
+.auth_note_badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-secondary-dark);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.auth_note_text {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Sovereign Quick Links Panel (Right Column of section_gateway)
+   ========================================================================== */
+.quick_links_panel {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 1.75rem 1.65rem 1.5rem 1.65rem;
+  box-shadow: 0 10px 32px -4px rgba(15, 23, 42, 0.08);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.quick_links_panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#E2E8F0 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.ql_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.15rem;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.ql_badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-primary-tint);
+  border: 1px solid rgba(14, 77, 52, 0.2);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-bottom: 0.25rem;
+}
+
+.ql_title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--color-navy-900);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.ql_status_chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.ql_status_pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16A34A;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+  animation: radarPulse 2s infinite;
+}
+
+.ql_status_text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #15803D;
+  letter-spacing: 0.02em;
+}
+
+.ql_buttons_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.15rem;
+}
+
+.ql_btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 0.85rem;
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  cursor: pointer;
+}
+
+.ql_btn:hover {
+  background: #FFFFFF;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
+}
+
+.ql_btn.featured {
+  background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
+  border-color: rgba(14, 77, 52, 0.3);
+}
+
+.ql_btn.featured:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 20px -4px rgba(14, 77, 52, 0.15);
+}
+
+.ql_btn_icon_box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.ql_btn:hover .ql_btn_icon_box {
+  transform: scale(1.08);
+}
+
+.ql_btn_icon_box.primary {
+  background: var(--color-primary-tint);
+  color: var(--color-primary);
+}
+
+.ql_btn_icon_box.green {
+  background: #ECFDF5;
+  color: #059669;
+}
+
+.ql_btn_icon_box.teal {
+  background: #F0FDFA;
+  color: #0D9488;
+}
+
+.ql_btn_icon_box.red {
+  background: #FEF2F2;
+  color: #DC2626;
+}
+
+.ql_btn_icon_box.gold {
+  background: #FFFBEB;
+  color: #D97706;
+}
+
+.ql_svg_icon {
+  width: 18px;
+  height: 18px;
+}
+
+.ql_btn_content {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.ql_btn_label_row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.15rem;
+  flex-wrap: wrap;
+}
+
+.ql_btn_name {
+  font-size: 0.835rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  line-height: 1.2;
+}
+
+.ql_micro_tag {
+  font-size: 0.625rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.ql_micro_tag.green { background: #DCFCE7; color: #166534; }
+.ql_micro_tag.gold { background: #FEF3C7; color: #92400E; }
+.ql_micro_tag.blue { background: #DBEAFE; color: #1E40AF; }
+.ql_micro_tag.red { background: #FEE2E2; color: #991B1B; }
+
+.ql_btn_desc {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ql_arrow_btn {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #94A3B8;
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ql_btn:hover .ql_arrow_btn {
+  transform: translateX(3px);
+  color: var(--color-primary);
+}
+
+.ql_footer_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+
+.ql_footer_lbl {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+}
+
+.ql_footer_sub {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.ql_action_link_btn {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--color-primary);
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ql_action_link_btn:hover {
+  background: var(--color-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(14, 77, 52, 0.2);
+}
+
+@media (max-width: 640px) {
+  .ql_buttons_grid {
+    grid-template-columns: 1fr;
+  }
+  .ql_footer_bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+}
+
+/* ==========================================================================
+   Port Capabilities & Macroeconomic Impact Panel (Match Uploaded Image)
+   ========================================================================== */
+.gateway_right_corner {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  animation: heroElementEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s backwards;
+}
+
+.macro_corner_panel {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 1.75rem 1.65rem 1.5rem 1.65rem;
+  box-shadow: 0 10px 32px -4px rgba(15, 23, 42, 0.08);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Topographic Watermark Effect */
+.macro_corner_panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#E2E8F0 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* --- Section 1: Port Capabilities 2030 Targets --- */
+.port_capabilities_block {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.15rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.port_cap_main_title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--color-navy-900);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.port_cap_subrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.25rem;
+}
+
+.port_cap_subtitle {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--color-navy-900);
+}
+
+.port_cap_unit {
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.port_chart_wrapper {
+  background: #FAFAFA;
+  border: 1px solid #F1F5F9;
+  border-radius: 10px;
+  padding: 0.4rem 0.5rem 0.25rem 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.port_svg_chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.chart_axis_text {
+  font-size: 9.5px;
+  fill: #64748B;
+  font-weight: 600;
+  text-anchor: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart_grid_line {
+  stroke: #E2E8F0;
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+}
+
+.chart_grid_line.baseline {
+  stroke: #CBD5E1;
+  stroke-dasharray: none;
+}
+
+.chart_bar_current {
+  fill: #94A3B8;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.chart_bar_target {
+  fill: #1E6144; /* Forest Green */
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.chart_bar_current:hover,
+.chart_bar_target:hover {
+  filter: brightness(1.1);
+}
+
+.bar_val_label {
+  font-size: 10px;
+  fill: #0F172A;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+.bar_val_label.highlight_val {
+  fill: #1E6144;
+  font-size: 10.5px;
+}
+
+.chart_cat_label {
+  font-size: 11px;
+  fill: #1E293B;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.chart_trend_arrow {
+  stroke: #0D9488;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  filter: drop-shadow(0 1px 2px rgba(13, 148, 136, 0.3));
+}
+
+/* Legend Row */
+.port_legend_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.35rem;
+}
+
+.port_legend_item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.785rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.legend_sq_current {
+  width: 12px;
+  height: 12px;
+  background: #94A3B8;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend_line_target {
+  width: 18px;
+  height: 3px;
+  background: #0D9488;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* --- Section 2: Macroeconomic Impact 2x2 Grid --- */
+.macro_impact_block {
+  position: relative;
+  z-index: 2;
+}
+
+.macro_impact_main_title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--color-navy-900);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.macro_cards_2x2_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.macro_grid_card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.macro_grid_card:hover {
+  transform: translateY(-2px);
+  border-color: #CBD5E1;
+  box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.08);
+}
+
+.macro_card_label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.35rem;
+}
+
+.macro_card_value {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--color-navy-900);
+  line-height: 1.1;
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.macro_card_bar {
+  height: 5px;
+  background: var(--color-neutral-200);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.macro_card_fill {
+  height: 100%;
+  background: #1E6144;
+  border-radius: 3px;
+  animation: growMiniBar 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   Telemetry Pillar Chart Section Dock (Exact Match to Uploaded Image)
+   ========================================================================== */
+.hero_stats_grid.hero_pillar_chart {
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 50% 0%, #1d4ed8 0%, #0d274c 55%, #051329 100%);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  border-radius: 24px;
+  padding: 2.25rem 2rem 2rem 2rem;
+  box-shadow: 0 24px 60px -12px rgba(5, 19, 41, 0.8), 0 0 45px -10px rgba(29, 78, 216, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  animation: heroElementEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s backwards;
+}
+
+/* Title above cards: TELEMETRY PILLAR CHART */
+.telemetry_chart_main_title {
+  text-align: center;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8), 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* 3 Pillars Columns Grid */
+.pillar_columns_wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* Individual Glassmorphic Telemetry Card */
+.stat_card.pillar_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem 1.4rem 1.4rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(20, 48, 88, 0.75) 0%, rgba(10, 22, 44, 0.92) 100%);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s;
+  position: relative;
+}
+
+.stat_card.pillar_item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59, 130, 246, 0.55);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.65), 0 0 28px rgba(29, 78, 216, 0.35);
+}
+
+/* Card Header Row */
+.card_header_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.card_metric_label {
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: #D4A373;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card_chevron_btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card_chevron_btn:hover {
+  background: #1D4ED8;
+  color: #FFFFFF;
+  border-color: #1D4ED8;
+}
+
+.card_main_val {
+  font-size: 2.35rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.card_sub_desc {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  margin-bottom: 1.25rem;
+}
+
+/* Graph Canvas Area 1: Valuation */
+.valuation_graph_body {
+  display: flex;
+  gap: 0.65rem;
+  align-items: stretch;
+  height: 175px;
+  margin-bottom: 1rem;
+}
+
+.graph_y_axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: #64748B;
+  font-weight: 600;
+  padding-bottom: 22px;
+  text-align: right;
+  min-width: 34px;
+}
+
+.graph_canvas_area {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.telemetry_svg_valuation {
+  width: 100%;
+  height: 150px;
+  display: block;
+  overflow: visible;
+}
+
+.svg_gridline {
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-dasharray: 2 4;
+  stroke-width: 1;
+}
+
+.val_area_path {
+  opacity: 0;
+  animation: fadeInValArea 1.8s ease-out 0.6s forwards;
+}
+
+@keyframes fadeInValArea {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.val_neon_line {
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450;
+  animation: drawValLine 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawValLine {
+  0% { stroke-dashoffset: 450; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.val_peak_pulse {
+  transform-origin: 270px 18px;
+  animation: pulsePeakGlow 2.2s infinite ease-in-out;
+}
+
+@keyframes pulsePeakGlow {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px #4ADE80); }
+  50% { transform: scale(1.4); filter: drop-shadow(0 0 10px #4ADE80); }
+}
+
+.graph_x_axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: #64748B;
+  font-weight: 600;
+  margin-top: 6px;
+  padding: 0 4px;
+}
+
+/* Graph Canvas Area 2: Territory Multi-Bar */
+.territory_graph_body {
+  display: flex;
+  gap: 0.65rem;
+  align-items: stretch;
+  height: 175px;
+  margin-bottom: 1rem;
+}
+
+.territory_bars_canvas {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-grow: 1;
+  height: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 4px;
+}
+
+.stacked_bar_group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  width: 22%;
+}
+
+.stacked_bar_track {
+  width: 100%;
+  max-width: 34px;
+  height: var(--bar-height, 50%);
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform-origin: bottom;
+  animation: barGrowUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) var(--bar-delay, 0s) backwards;
+  transition: transform 0.25s ease;
+}
+
+.stacked_bar_group:hover .stacked_bar_track {
+  transform: scaleY(1.05);
+  filter: brightness(1.15);
+}
+
+@keyframes barGrowUp {
+  0% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+.bar_top_gold {
+  background: linear-gradient(180deg, #E2BC96 0%, #D4A373 100%);
+  width: 100%;
+}
+
+.bar_bottom_green {
+  background: linear-gradient(180deg, #10B981 0%, #065F46 100%);
+  width: 100%;
+}
+
+.bar_x_label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #64748B;
+  margin-top: 8px;
+  white-space: nowrap;
+}
+
+/* Graph Canvas Area 3: Port Draft Depth Gauge & Ocean Scene */
+.port_draft_graph_body {
+  display: flex;
+  gap: 1.25rem;
+  align-items: stretch;
+  height: 175px;
+  margin-bottom: 1rem;
+}
+
+.draft_sounder_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 48px;
+  height: 100%;
+}
+
+.sounder_top_label,
+.sounder_bot_label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #94A3B8;
+}
+
+.sounder_ruler_track {
+  width: 22px;
+  flex-grow: 1;
+  margin: 4px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  position: relative;
+  overflow: visible;
+}
+
+.sounder_water_fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 94%;
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.6) 0%, rgba(16, 185, 129, 0.8) 100%);
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
+  animation: fillWater 1.6s ease-out forwards;
+}
+
+@keyframes fillWater {
+  0% { height: 0%; }
+  100% { height: 94%; }
+}
+
+.sounder_pointer_badge {
+  position: absolute;
+  top: 6%;
+  left: 100%;
+  margin-left: 6px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #10B981;
+  border-radius: 6px;
+  padding: 2px 6px;
+  white-space: nowrap;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  animation: pointerGlow 3s ease-in-out infinite;
+}
+
+@keyframes pointerGlow {
+  0%, 100% { border-color: #10B981; box-shadow: 0 0 6px rgba(16, 185, 129, 0.4); }
+  50% { border-color: #4ADE80; box-shadow: 0 0 12px rgba(74, 222, 128, 0.7); }
+}
+
+.pointer_sub {
+  font-size: 0.55rem;
+  color: #94A3B8;
+  font-weight: 700;
+}
+
+.pointer_arrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.sounder_ticks {
+  position: absolute;
+  left: 2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px 0;
+  pointer-events: none;
+}
+
+.sounder_ticks .tick {
+  width: 4px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.draft_ocean_scene {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.container_ship_asset {
+  width: 100%;
+  max-width: 215px;
+  margin-left: auto;
+  margin-right: -4px;
+  margin-bottom: -16px;
+  z-index: 3;
+  position: relative;
+  animation: shipGentleBob 4.5s ease-in-out infinite;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+@keyframes shipGentleBob {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(-0.5deg); }
+}
+
+.ship_img,
+.ship_svg {
+  width: 100%;
+  max-height: 108px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55));
+  transition: transform 0.3s ease;
+}
+
+.container_ship_asset:hover .ship_img {
+  transform: scale(1.03);
+}
+
+.water_depth_abyss {
+  height: 64px;
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 25%, #0c4a6e 65%, #082f49 100%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.water_waves_line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.water_abyss_gradient {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.vessel_badge_bold {
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.vessel_badge_sub {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #7dd3fc;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+/* Card Bottom Highlight Footers */
+.card_bottom_highlight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.1rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card_highlight_text.neon_green {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #22C55E;
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.6);
+  letter-spacing: 0.02em;
+}
+
+/* Pillar Bottom Datum Axis Strip */
+.pillar_chart_datum {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.datum_axis_mark {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.08em;
+}
+
+.datum_axis_line {
+  flex-grow: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  .hero_bg_media,
+  .hero_overlay_ambient,
+  .telemetry_pulse_ring::before,
+  .btn_primary::after,
+  .chart_radar_dot {
+    animation: none !important;
+    transition: none !important;
+  }
+  .hero_telemetry_bar,
+  .hero_main_headline,
+  .hero_accent_line,
+  .hero_description,
+  .hero_cta_group,
+  .hero_stats_grid {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .val_line,
+  .cost_line,
+  .pie_progress_arc {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+  .bar_fill {
+    height: var(--bar-h) !important;
+    transition: none !important;
+  }
+  .depth_water_fill {
+    height: var(--depth-h) !important;
+    transition: none !important;
+  }
+  .graph_area_fill,
+  .graph_peak_dot,
+  .graph_trough_dot,
+  .graph_trend_badge {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .stat_card:hover,
+  .btn_primary:hover {
+    transform: none !important;
+  }
+}
+
+/* --- 7. The 4 Strategic Hubs Section --- */
+.section_hubs {
+  background: transparent;
+}
+
+.hubs_tab_nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hub_tab_btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.hub_tab_btn.active {
+  background: var(--color-primary); /* #0E4D34 */
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.hub_content_panel {
+  display: none;
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  padding: 3rem;
+  box-shadow: var(--shadow-md);
+}
+
+.hub_content_panel.active {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hub_left_copy h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-neutral-900);
+  margin-bottom: 1rem;
+}
+
+.hub_metrics_box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metric_item {
+  background: #FFFFFF;
+  padding: 1.1rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-secondary); /* #047857 */
+  box-shadow: var(--shadow-sm);
+}
+
+.metric_item_val {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-primary); /* #0E4D34 */
+}
+
+.metric_item_lbl {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.hub_right_card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.hub_right_card img {
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* --- 8. The Spatial Red Line & Zoning Section --- */
+.section_zoning {
+  background: linear-gradient(180deg, var(--color-navy-950) 0%, var(--color-navy-900) 100%);
+  color: #FFFFFF;
+}
+
+.red_line_banner {
+  background: rgba(230, 57, 70, 0.15);
+  border: 2px solid var(--color-red-500);
+  border-radius: 12px;
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.red_line_banner h3,
+.red_line_banner h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.red_line_banner p {
+  color: #FDA4AF;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.zoning_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.zone_card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.zone_card.north {
+  border-top: 4px solid var(--color-gold-400);
+}
+
+.zone_card.south {
+  border-top: 4px solid var(--color-teal-400);
+}
+
+.zone_card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.zone_badge {
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.zone_badge.north { background: var(--color-gold-400); color: var(--color-navy-950); }
+.zone_badge.south { background: var(--color-teal-500); color: #FFFFFF; }
+
+.zone_features_list {
+  list-style: none;
+  margin: 1.5rem 0;
+}
+
+.zone_features_list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.9rem;
+  color: #CBD5E1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.zone_features_list li::before {
+  content: '✓';
+  color: var(--color-gold-400);
+  font-weight: 800;
+}
+
+.zone_card.south .zone_features_list li::before {
+  color: var(--color-teal-400);
+}
+
+/* Kashima Symbiosis Visual Bar */
+.kashima_bar_wrapper {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ratio_bar {
+  height: 28px;
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+  margin: 1.25rem 0;
+}
+
+.ratio_fill_industrial {
+  background: var(--color-primary); /* #0E4D34 Primary from screenshot */
+  width: 54%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #FFFFFF;
+}
+
+.ratio_fill_urban {
+  background: var(--color-tertiary); /* #D4A373 Tertiary from screenshot */
+  width: 46%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--color-neutral-900); /* #0F172A */
+}
+
+/* --- 9. Mega-Projects Transparency Tracker --- */
+.section_projects {
+  background: transparent;
+}
+
+.project_filter_bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.filter_btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.filter_btn.active {
+  background: var(--color-primary); /* #0E4D34 */
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.projects_cards_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project_card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.project_card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(14, 77, 52, 0.3);
+}
+
+.project_card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+}
+
+.project_status_tag {
+  font-size: 0.725rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.project_status_tag.completed { background: var(--color-primary-tint); color: var(--color-primary); border: 1px solid rgba(14, 77, 52, 0.25); }
+.project_status_tag.ongoing { background: var(--color-tertiary-wash); color: var(--color-tertiary-deep); border: 1px solid rgba(212, 163, 115, 0.4); }
+.project_status_tag.pipeline { background: #F1F5F9; color: var(--color-neutral-600); border: 1px solid var(--color-neutral-300); }
+.project_status_tag.fdi { background: #ECFDF5; color: var(--color-secondary-dark); border: 1px solid rgba(4, 120, 87, 0.3); }
+
+.project_title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-neutral-900);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.project_agency {
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.project_metrics_row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.85rem;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.project_cost_val {
+  font-weight: 800;
+  color: var(--color-primary); /* #0E4D34 */
+}
+
+/* --- 10. "Show Care" Community & Ecological Stewardship --- */
+.section_care {
+  background: transparent;
+}
+
+.care_pillars_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.care_pillar_card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.care_pillar_card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-secondary); /* #047857 */
+}
+
+.care_icon_box {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--color-primary-tint);
+  color: var(--color-primary); /* #0E4D34 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.care_pillar_card h3,
+.care_pillar_card h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-neutral-900);
+  margin-bottom: 0.75rem;
+}
+
+.care_highlight_box {
+  background: #FFFFFF;
+  border: 1px solid rgba(14, 77, 52, 0.2);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- 11. Investor Center & One-Stop Service (OSS) --- */
+.section_investor {
+  background: transparent;
+}
+
+.oss_workflow_steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.oss_step_card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 1.75rem;
+  border: 1px solid var(--color-border);
+  position: relative;
+}
+
+.oss_step_num {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #E2E8F0;
+}
+
+.oss_step_card h3,
+.oss_step_card h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* --- 12. Leadership Directory & Official Governance --- */
+.section_leadership {
+  background: transparent;
+}
+
+.leadership_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.leader_card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.leader_header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.leader_avatar_placeholder {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-navy-700);
+  color: var(--color-gold-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.leader_name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+}
+
+.leader_role {
+  font-size: 0.8rem;
+  color: var(--color-teal-600);
+  font-weight: 600;
+}
+
+.leader_contact_meta {
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.75rem;
+}
+
+/* --- 13. Citizen Grievance (GRS) & Contact --- */
+.section_contact {
+  background: var(--color-navy-950);
+  color: #FFFFFF;
+}
+
+.contact_dual_layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem;
+}
+
+.contact_form_box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 2.25rem;
+}
+
+.form_group {
+  margin-bottom: 1.25rem;
+}
+
+.form_group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #E2E8F0;
+  margin-bottom: 0.4rem;
+}
+
+.form_input, .form_select, .form_textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.form_input:focus, .form_select:focus, .form_textarea:focus {
+  border-color: var(--color-gold-400);
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.form_textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* --- 14. Sovereign Footer --- */
+.footer_sovereign {
+  background: #02070e;
+  color: #94A3B8;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.875rem;
+}
+
+.footer_grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer_col h4,
+.footer_col h5 {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.footer_links {
+  list-style: none;
+}
+
+.footer_links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer_links a:hover {
+  color: var(--color-gold-400);
+}
+
+.footer_bottom_row {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* --- New Sections: Timeline & Macroeconomic Impact --- */
+.macro_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.macro_card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.macro_title {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.macro_value {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  margin-bottom: 1.25rem;
+  line-height: 1;
+}
+.macro_bar_track {
+  height: 6px;
+  background: var(--color-neutral-200);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: auto;
+}
+.macro_bar_fill {
+  height: 100%;
+  background: var(--color-secondary); /* Forest Green */
+  border-radius: 3px;
+}
+
+/* ==========================================================================
+   14.5. Master Implementation Roadmap (2025–2056)
+   Alternating Horizontal Showcase matching statutory architecture
+   ========================================================================== */
+.section_roadmap_showcase {
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.roadmap_header_center {
+  max-width: 820px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.roadmap_eyebrow {
+  display: inline-block;
+  background: rgba(29, 78, 216, 0.08);
+  color: #1D4ED8;
+  border: 1px solid rgba(29, 78, 216, 0.28);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.roadmap_main_title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+}
+
+.roadmap_lead_text {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.roadmap_track_container {
+  position: relative;
+  margin-top: 2.5rem;
+  padding: 1rem 0;
+}
+
+/* Desktop Grid: 3 Rows (Top cards, line/dots, Bottom cards) */
+@media (min-width: 993px) {
+  .roadmap_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(180px, auto) 40px minmax(180px, auto);
+    gap: 0 1.75rem;
+    position: relative;
+    align-items: center;
+  }
+
+  /* Subgrid / contents so children participate directly in 3 rows */
+  .roadmap_step {
+    display: contents;
+  }
+
+  /* The continuous sovereign blue horizontal spine */
+  .roadmap_spine_line {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: 4px;
+    background: #1D4ED8;
+    border-radius: 999px;
+    align-self: center;
+    z-index: 1;
+    margin: 0 0.5rem;
+    position: relative;
+  }
+
+  /* Dot boxes in row 2 */
+  .step_1 .roadmap_dot_box {
+    grid-column: 1;
+    grid-row: 2;
+    z-index: 2;
+    align-self: center;
+    justify-self: start;
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .step_2 .roadmap_dot_box {
+    grid-column: 2;
+    grid-row: 2;
+    z-index: 2;
+    align-self: center;
+    justify-self: start;
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .step_3 .roadmap_dot_box {
+    grid-column: 3;
+    grid-row: 2;
+    z-index: 2;
+    align-self: center;
+    justify-self: start;
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .step_4 .roadmap_dot_box {
+    grid-column: 4;
+    grid-row: 2;
+    z-index: 2;
+    align-self: center;
+    justify-self: start;
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Top Cards (Row 1): Step 1 & Step 3 */
+  .step_1 .roadmap_card_box {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    margin-bottom: 1.75rem;
+  }
+  .step_3 .roadmap_card_box {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: end;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Bottom Cards (Row 3): Step 2 & Step 4 */
+  .step_2 .roadmap_card_box {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+    margin-top: 1.75rem;
+  }
+  .step_4 .roadmap_card_box {
+    grid-column: 4;
+    grid-row: 3;
+    align-self: start;
+    margin-top: 1.75rem;
+  }
+}
+
+/* Card & Node Element Styles */
+.roadmap_step_tag {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1D4ED8;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  margin-left: 0.25rem;
+  text-transform: uppercase;
+}
+
+.roadmap_card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.05), 0 4px 10px -2px rgba(15, 23, 42, 0.02);
+  padding: 1.5rem 1.6rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  position: relative;
+}
+
+.roadmap_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -6px rgba(15, 23, 42, 0.09), 0 8px 16px -4px rgba(15, 23, 42, 0.03);
+  border-color: rgba(29, 78, 216, 0.45);
+}
+
+.roadmap_card_title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+.roadmap_card_desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+}
+
+.roadmap_pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.roadmap_pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #334155;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.01em;
+}
+
+/* Circular Hollow Ring Dot */
+.roadmap_ring_dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 4px solid #1D4ED8;
+  box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.15);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+
+.roadmap_ring_dot:hover {
+  transform: scale(1.25);
+  border-color: #1E40AF;
+  box-shadow: 0 0 0 7px rgba(29, 78, 216, 0.3);
+}
+
+/* ==========================================================================
+   Scroll-Triggered Staggered Sequential Phase Entrance (One-Time)
+   Roadmap cards load sequentially with the continuous spine line
+   ========================================================================== */
+.roadmap_track_container.scroll_reveal_init .roadmap_spine_line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Cards above the line (Phase 1, Phase 3): Hidden with subtle upward offset */
+.roadmap_track_container.scroll_reveal_init .step_1 .roadmap_card_box,
+.roadmap_track_container.scroll_reveal_init .step_3 .roadmap_card_box,
+.roadmap_track_container.scroll_reveal_init .step_above .roadmap_card_box {
+  opacity: 0;
+  transform: translateY(-28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+/* Cards below the line (Phase 2, Phase 4): Hidden with subtle downward offset */
+.roadmap_track_container.scroll_reveal_init .step_2 .roadmap_card_box,
+.roadmap_track_container.scroll_reveal_init .step_4 .roadmap_card_box,
+.roadmap_track_container.scroll_reveal_init .step_below .roadmap_card_box {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+/* Hollow ring dots: Scaled to 0 initially */
+.roadmap_track_container.scroll_reveal_init .roadmap_ring_dot {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Triggered State: Spine Line sweeps continuously from left to right */
+.roadmap_track_container.is_visible .roadmap_spine_line {
+  transform: scaleX(1);
+}
+
+/* Phase 1 (2026): Loads as the line passes Milestone 1 */
+.roadmap_track_container.is_visible .step_1 .roadmap_ring_dot {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.12s;
+}
+.roadmap_track_container.is_visible .step_1 .roadmap_card_box {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+  pointer-events: auto;
+}
+
+/* Phase 2 (2030): Loads as the line sweeps through Milestone 2 */
+.roadmap_track_container.is_visible .step_2 .roadmap_ring_dot {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.38s;
+}
+.roadmap_track_container.is_visible .step_2 .roadmap_card_box {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.42s;
+  pointer-events: auto;
+}
+
+/* Phase 3 (2040): Loads as the line sweeps through Milestone 3 */
+.roadmap_track_container.is_visible .step_3 .roadmap_ring_dot {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.66s;
+}
+.roadmap_track_container.is_visible .step_3 .roadmap_card_box {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.70s;
+  pointer-events: auto;
+}
+
+/* Phase 4 (2056): Loads as the line completes through Milestone 4 */
+.roadmap_track_container.is_visible .step_4 .roadmap_ring_dot {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.94s;
+}
+.roadmap_track_container.is_visible .step_4 .roadmap_card_box {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.98s;
+  pointer-events: auto;
+}
+
+/* Institutional Footer Ribbon */
+.roadmap_footer_ribbon {
+  margin-top: 4rem;
+  background: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.ribbon_item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ribbon_label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ribbon_val {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+}
+
+.ribbon_divider {
+  width: 1px;
+  height: 28px;
+  background: var(--color-border);
+}
+
+/* Mobile & Tablet Vertical Roadmap */
+@media (max-width: 992px) {
+  .roadmap_grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+    position: relative;
+    padding-left: 2.75rem;
+  }
+
+  .roadmap_spine_line {
+    position: absolute;
+    left: 11px;
+    top: 1rem;
+    bottom: 1rem;
+    width: 4px;
+    height: auto;
+    background: #1D4ED8;
+    border-radius: 999px;
+    z-index: 1;
+    margin: 0;
+  }
+
+  .roadmap_track_container.scroll_reveal_init .roadmap_spine_line {
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .roadmap_track_container.is_visible .roadmap_spine_line {
+    transform: scaleY(1);
+  }
+
+  .roadmap_track_container.scroll_reveal_init .roadmap_card_box {
+    opacity: 0;
+    transform: translateX(24px) !important;
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .roadmap_track_container.is_visible .roadmap_card_box {
+    opacity: 1;
+    transform: translateX(0) !important;
+  }
+
+  .roadmap_step {
+    position: relative;
+    display: block;
+  }
+
+  .roadmap_dot_box {
+    position: absolute;
+    left: -2.75rem;
+    top: 6px;
+    z-index: 2;
+  }
+
+  .roadmap_card_box {
+    margin: 0 !important;
+  }
+
+  .roadmap_footer_ribbon {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .ribbon_divider {
+    display: none;
+  }
+}
+
+/* --- 15. Responsive Breakpoints --- */
+@media (max-width: 1220px) {
+  .nav_menu {
+    gap: 0.75rem;
+  }
+  .nav_link {
+    font-size: 0.815rem;
+    padding: 0.4rem 0.15rem;
+  }
+  .brand_subtitle {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav_menu {
+    display: none; /* Mobile menu drawer takes over at 1024px to prevent clutter */
+  }
+  .mobile_toggle {
+    display: block;
+  }
+  .pillar_columns_wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .projects_cards_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .oss_workflow_steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .leadership_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section_hero_slideshow {
+    min-height: 80vh;
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
+  }
+  .hero_slideshow_headline {
+    font-size: 2.2rem;
+  }
+  .slideshow_controls_inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .slideshow_indicators {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    flex-wrap: nowrap;
+  }
+  .slideshow_nav_buttons {
+    align-self: flex-end;
+  }
+  .hero_main_headline {
+    font-size: 2.35rem;
+  }
+  .pillar_chart_header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .pillar_columns_wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .stat_card.pillar_item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .pillar_stem_track {
+    height: 110px;
+  }
+  .pillar_top_metric .stat_value {
+    font-size: 1.85rem;
+  }
+  .hub_content_panel.active {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  .zoning_grid {
+    grid-template-columns: 1fr;
+  }
+  .projects_cards_grid {
+    grid-template-columns: 1fr;
+  }
+  .care_pillars_grid {
+    grid-template-columns: 1fr;
+  }
+  .care_highlight_box {
+    grid-template-columns: 1fr;
+  }
+  .leadership_grid {
+    grid-template-columns: 1fr;
+  }
+  .contact_dual_layout {
+    grid-template-columns: 1fr;
+  }
+  .footer_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   16. Dedicated "About MIDA" Authority Page Architecture
+   ========================================================================== */
+.about_page_hero {
+  padding-top: 3.5rem;
+  padding-bottom: 3rem;
+  position: relative;
+  background: transparent;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about_breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.about_breadcrumb a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.about_breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.about_breadcrumb_sep {
+  opacity: 0.4;
+}
+
+.about_hero_title {
+  font-size: clamp(2.2rem, 3.8vw, 3.25rem);
+  font-weight: 900;
+  color: var(--color-navy-900);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+
+.about_hero_lead {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 82ch;
+  margin-bottom: 2rem;
+}
+
+.about_statutory_pillars_section {
+  padding: 3rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about_pillars_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.about_pillar_expanded_card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all var(--transition-fast);
+}
+
+.about_pillar_expanded_card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 28px rgba(14, 77, 52, 0.1);
+}
+
+.apec_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.apec_num {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.apec_badge {
+  font-size: 0.725rem;
+  font-weight: 800;
+  color: var(--color-tertiary-deep);
+  background: var(--color-tertiary-wash);
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.apec_title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  margin-bottom: 0.6rem;
+}
+
+.apec_desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.about_dual_capabilities_grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: stretch;
+  margin-top: 2rem;
+}
+
+.about_capabilities_card,
+.about_impact_card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2.25rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about_timeline_section {
+  padding: 4rem 0;
+  background: transparent;
+}
+
+.about_history_table_wrapper {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-top: 2rem;
+}
+
+.about_history_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.about_history_table th {
+  background: #F8FAFC;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-navy-900);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about_history_table td {
+  padding: 1.1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.about_history_table tr:last-child td {
+  border-bottom: none;
+}
+
+.about_history_table tr:hover td {
+  background: #F8FAFC;
+}
+
+.about_history_table .ht_year {
+  font-weight: 800;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.about_act_callout {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 16px;
+  padding: 2rem 2.25rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about_act_callout_title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #14532D;
+  margin-bottom: 0.5rem;
+}
+
+.about_act_callout_text {
+  font-size: 0.925rem;
+  color: #166534;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .about_pillars_grid {
+    grid-template-columns: 1fr;
+  }
+  .about_dual_capabilities_grid {
+    grid-template-columns: 1fr;
+  }
+  .about_act_callout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
